@@ -1,3 +1,94 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-1",
+      "description": "A dramatic landscape for the hero banner",
+      "imageUrl": "https://images.unsplash.com/photo-1753308871637-bf6836ea5108?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkcmFtYXRpYyUyMGxhbmRzY2FwZXxlbnwwfHx8fDE3NzA2OTIzOTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dramatic landscape"
+    },
+    {
+      "id": "action-1",
+      "description": "Action movie thumbnail",
+      "imageUrl": "https://images.unsplash.com/photo-1768328591824-086efd77c1a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YWN0aW9uJTIwZXhwbG9zaW9ufGVufDB8fHx8MTc3MDc0Njg1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "action explosion"
+    },
+    {
+      "id": "action-2",
+      "description": "Action movie thumbnail",
+      "imageUrl": "https://images.unsplash.com/photo-1647962982511-f120db3d63c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjYXIlMjBjaGFzZXxlbnwwfHx8fDE3NzA3MDQ1MjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "car chase"
+    },
+    {
+      "id": "action-3",
+      "description": "Action movie thumbnail",
+      "imageUrl": "https://images.unsplash.com/photo-1653597548817-8e3eb1c5f616?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdXBlcmhlcm8lMjBmbGlnaHR8ZW58MHx8fHwxNzcwNzY0MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "superhero flight"
+    },
+    {
+      "id": "action-4",
+      "description": "Action movie thumbnail",
+      "imageUrl": "https://images.unsplash.com/photo-1518813225318-2fb102170f52?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmaWdodGVyJTIwamV0fGVufDB8fHx8MTc3MDc2NDM4MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fighter jet"
+    },
+    {
+      "id": "comedy-1",
+      "description": "Comedy movie thumbnail",
+      "imageUrl": "https://images.unsplash.com/photo-1556997685-309989c1aa82?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmdW5ueSUyMGZhY2V8ZW58MHx8fHwxNzcwNzU0NzM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "funny face"
+    },
+    {
+      "id": "comedy-2",
+      "description": "Comedy movie thumbnail",
+      "imageUrl": "https://images.unsplash.com/photo-1545580140-ab89a0426d37?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwZW9wbGUlMjBsYXVnaGluZ3xlbnwwfHx8fDE3NzA3NjQzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "people laughing"
+    },
+    {
+      "id": "comedy-3",
+      "description": "Comedy movie thumbnail",
+      "imageUrl": "https://images.unsplash.com/photo-1657054711964-a0eb014c2df1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwYXJ0eSUyMHNjZW5lfGVufDB8fHx8MTc3MDc2NDM4MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "party scene"
+    },
+    {
+      "id": "scifi-1",
+      "description": "Sci-Fi movie thumbnail",
+      "imageUrl": "https://images.unsplash.com/photo-1760813360432-9b5d79eb9679?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzcGFjZXNoaXAlMjBpbnRlcmlvcnxlbnwwfHx8fDE3NzA3NjQzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spaceship interior"
+    },
+    {
+      "id": "scifi-2",
+      "description": "Sci-Fi movie thumbnail",
+      "imageUrl": "https://images.unsplash.com/photo-1639525558181-79bfd2f10cb5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhbGllbiUyMHBsYW5ldHxlbnwwfHx8fDE3NzA2NjMyNjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "alien planet"
+    },
+    {
+      "id": "scifi-3",
+      "description": "Sci-Fi movie thumbnail",
+      "imageUrl": "https://images.unsplash.com/photo-1535021131637-96f0c931f5d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmdXR1cmlzdGljJTIwY2l0eXxlbnwwfHx8fDE3NzA3MTYzODN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "futuristic city"
+    },
+    {
+      "id": "scifi-4",
+      "description": "Sci-Fi movie thumbnail",
+      "imageUrl": "https://images.unsplash.com/photo-1734359200364-0621ce007475?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxnbG93aW5nJTIwcG9ydGFsfGVufDB8fHx8MTc3MDc2NDM4MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "glowing portal"
+    },
+    {
+      "id": "drama-1",
+      "description": "Drama movie thumbnail",
+      "imageUrl": "https://images.unsplash.com/photo-1624821715768-8438be04200b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0aG91Z2h0ZnVsJTIwcGVyc29ufGVufDB8fHx8MTc3MDc2NDM4MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "thoughtful person"
+    },
+    {
+      "id": "drama-2",
+      "description": "Drama movie thumbnail",
+      "imageUrl": "https://images.unsplash.com/photo-1600276871076-49d461d70795?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxyYWlueSUyMHdpbmRvd3xlbnwwfHx8fDE3NzA2NTU5MDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "rainy window"
+    },
+    {
+      "id": "drama-3",
+      "description": "Drama movie thumbnail",
+      "imageUrl": "https://images.unsplash.com/photo-1623670615585-36ed08bc0881?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxvbGQlMjBwaG90b2dyYXBofGVufDB8fHx8MTc3MDc2NDM4MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "old photograph"
+    }
+  ]
 }
