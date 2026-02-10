@@ -3,25 +3,24 @@ import Link from 'next/link';
 import { Info, Play } from 'lucide-react';
 import type { Movie } from '@/lib/types';
 import { Button } from '@/components/ui/button';
-import { getHeroImage } from '@/lib/data';
 
 type HeroBannerProps = {
   movie: Movie;
 };
 
 export default function HeroBanner({ movie }: HeroBannerProps) {
-  const heroImage = getHeroImage();
-  if (!heroImage) return null;
+  if (!movie.backdropURL) {
+    return null;
+  }
 
   return (
     <div className="relative h-[56.25vw] min-h-[400px] max-h-[800px] w-full">
       <Image
-        src={heroImage.imageUrl}
+        src={movie.backdropURL}
         alt={movie.title}
         fill
         priority
         className="object-cover"
-        data-ai-hint={heroImage.imageHint}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent"></div>
