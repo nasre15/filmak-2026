@@ -11,8 +11,8 @@ type WatchPageProps = {
   };
 };
 
-export default function WatchPage({ params }: WatchPageProps) {
-  const movie = getMovieById(params.id);
+export default async function WatchPage({ params }: WatchPageProps) {
+  const movie = await getMovieById(params.id);
 
   if (!movie) {
     notFound();
