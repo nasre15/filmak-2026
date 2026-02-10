@@ -28,6 +28,9 @@ export default function Header() {
               {link}
             </Link>
           ))}
+          <Link href="/admin" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            Admin
+          </Link>
         </nav>
       </div>
       <div className="flex items-center gap-4">
