@@ -21,14 +21,8 @@ export const getMovies = async (): Promise<Movie[]> => {
   return data.map(mapSupabaseMovieToMovie);
 };
 
-export const getMovieById = async (id: string): Promise<Movie | undefined> => {
-  const numericId = parseInt(id, 10);
-  if (isNaN(numericId)) {
-    console.error(`Invalid movie ID: ${id}`);
-    return undefined;
-  }
-
-  const { data, error } = await supabase.from('movies').select('*').eq('id', numericId).single();
+export const getMovieById = async (id: number): Promise<Movie | undefined> => {
+  const { data, error } = await supabase.from('movies').select('*').eq('id', id).single();
 
   if (error || !data) {
     if (error && error.code !== 'PGRST116') { // PGRST116: No rows found
