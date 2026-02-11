@@ -211,7 +211,7 @@ export default function ExplorePage() {
             <p className="text-center text-muted-foreground my-8">{t('explorePage.noMoreMovies')}</p>
           )}
            {!isLoading && !hasMore && movies.length === 0 && (
-            <p className="text-center text-muted-foreground my-8">No movies found matching your criteria.</p>
+            <p className="text-center text-muted-foreground my-8">{t('explorePage.noMoviesFound')}</p>
           )}
         </main>
       </div>

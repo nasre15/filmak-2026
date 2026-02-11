@@ -3,14 +3,14 @@
     "home": "الرئيسية",
     "tv_shows": "برامج تلفزيونية",
     "movies": "أفلام",
-    "new_popular": "جديد وشائج",
+    "new_popular": "جديد وشائع",
     "my_list": "قائمتي",
-    "admin": "مسؤل",
-    "explore": "استكشف"
+    "explore": "استكشف",
+    "admin": "إدارة"
   },
   "header": {
-    "notifications": "إشعارات",
-    "change_language": "غير اللغة"
+    "notifications": "الإشعارات",
+    "change_language": "تغيير اللغة"
   },
   "userMenu": {
     "user": "مستخدم ستريم فيرس",
@@ -22,7 +22,7 @@
   },
   "hero": {
     "play": "تشغيل",
-    "more_info": "معلومات اكثر"
+    "more_info": "مزيد من المعلومات"
   },
   "genres": {
     "Action": "أكشن",
@@ -32,24 +32,36 @@
     "Horror": "رعب"
   },
   "homePage": {
-    "footer": "© 2024 ستريم فيرس. كل الحقوق محفوظة.",
-    "noMovies": "لم يتم العثور على أفلام لعرضها.",
-    "tryAddingMovies": "حاول إضافة بعض الأفلام عبر لوحة الإدارة."
+    "footer": "© 2024 ستريم فيرس. جميع الحقوق محفوظة.",
+    "noMovies": "لم يتم العثور على أفلام",
+    "tryAddingMovies": "حاول إضافة بعض الأفلام من لوحة الإدارة."
   },
   "adminPage": {
+    "movieAdded": "تمت إضافة الفيلم!",
+    "movieAddedDescription": "تمت إضافة {{title}} بنجاح إلى المكتبة.",
+    "errorAddingMovie": "خطأ في إضافة الفيلم",
     "backToHome": "العودة إلى الرئيسية",
     "title": "إضافة فيلم جديد",
     "movieTitle": "عنوان الفيلم",
-    "movieTitlePlaceholder": "مثال: Inception",
+    "movieTitlePlaceholder": "مثال: 'The Matrix'",
     "description": "الوصف",
-    "descriptionPlaceholder": "نبذة مختصرة عن الفيلم...",
+    "descriptionPlaceholder": "ملخص قصير للفيلم...",
     "videoUrl": "رابط الفيديو",
-    "videoUrlPlaceholder": "مثال: https://example.com/video.mp4",
-    "save": "إضافة فيلم",
-    "saving": "جارٍ الإضافة...",
-    "movieAdded": "تمت إضافة الفيلم!",
-    "movieAddedDescription": "تمت إضافة {{title}} بنجاح.",
-    "errorAddingMovie": "خطأ في إضافة الفيلم"
+    "videoUrlPlaceholder": "https://example.com/movie.mp4",
+    "saving": "جارٍ الحفظ...",
+    "save": "حفظ الفيلم"
+  },
+  "explorePage": {
+    "title": "استكشاف الأفلام",
+    "filters": "مرشحات",
+    "genre": "التصنيف",
+    "allGenres": "جميع التصنيفات",
+    "year": "السنة",
+    "allYears": "كل السنوات",
+    "rating": "الحد الأدنى للتقييم",
+    "reset": "إعادة تعيين المرشحات",
+    "noMoreMovies": "لقد وصلت إلى النهاية.",
+    "noMoviesFound": "لم يتم العثور على أفلام تطابق معاييرك."
   },
   "settings": {
     "backToHome": "العودة إلى الرئيسية",
@@ -71,17 +83,5 @@
       "currentPlan": "الخطة الحالية:"
     },
     "logout": "تسجيل الخروج"
-  },
-  "explorePage": {
-    "title": "استكشف الأفلام",
-    "filters": "الفلاتر",
-    "genre": "النوع",
-    "allGenres": "كل الأنواع",
-    "year": "السنة",
-    "allYears": "كل السنوات",
-    "rating": "أقل تقييم",
-    "reset": "إعادة تعيين",
-    "loading": "جاري تحميل المزيد من الأفلام...",
-    "noMoreMovies": "لقد وصلت إلى النهاية!"
   }
 }

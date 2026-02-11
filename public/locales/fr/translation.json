@@ -4,9 +4,9 @@
     "tv_shows": "Séries TV",
     "movies": "Films",
     "new_popular": "Nouveautés",
-    "my_list": "Ma liste",
-    "admin": "Admin",
-    "explore": "Explorer"
+    "my_list": "Ma Liste",
+    "explore": "Explorer",
+    "admin": "Admin"
   },
   "header": {
     "notifications": "Notifications",
@@ -14,14 +14,14 @@
   },
   "userMenu": {
     "user": "Utilisateur StreamVerse",
-    "email": "user@example.com",
+    "email": "utilisateur@example.com",
     "profile": "Profil",
     "billing": "Facturation",
     "settings": "Paramètres",
     "logout": "Déconnexion"
   },
   "hero": {
-    "play": "Lecture",
+    "play": "Lire",
     "more_info": "Plus d'infos"
   },
   "genres": {
@@ -33,23 +33,35 @@
   },
   "homePage": {
     "footer": "© 2024 StreamVerse. Tous droits réservés.",
-    "noMovies": "Aucun film trouvé à afficher.",
-    "tryAddingMovies": "Essayez d'ajouter des films via le panneau d'administration."
+    "noMovies": "Aucun film trouvé",
+    "tryAddingMovies": "Essayez d'ajouter des films depuis le panneau d'administration."
   },
   "adminPage": {
+    "movieAdded": "Film ajouté !",
+    "movieAddedDescription": "{{title}} a été ajouté à la bibliothèque avec succès.",
+    "errorAddingMovie": "Erreur lors de l'ajout du film",
     "backToHome": "Retour à l'accueil",
     "title": "Ajouter un nouveau film",
     "movieTitle": "Titre du film",
-    "movieTitlePlaceholder": "ex: Inception",
+    "movieTitlePlaceholder": "Ex : 'Matrix'",
     "description": "Description",
-    "descriptionPlaceholder": "Un bref synopsis du film...",
+    "descriptionPlaceholder": "Un bref résumé du film...",
     "videoUrl": "URL de la vidéo",
-    "videoUrlPlaceholder": "ex: https://example.com/video.mp4",
-    "save": "Ajouter le film",
-    "saving": "Ajout en cours...",
-    "movieAdded": "Film ajouté !",
-    "movieAddedDescription": "{{title}} a été ajouté avec succès.",
-    "errorAddingMovie": "Erreur lors de l'ajout du film"
+    "videoUrlPlaceholder": "https://example.com/film.mp4",
+    "saving": "Enregistrement...",
+    "save": "Enregistrer le film"
+  },
+  "explorePage": {
+    "title": "Explorer les films",
+    "filters": "Filtres",
+    "genre": "Genre",
+    "allGenres": "Tous les genres",
+    "year": "Année",
+    "allYears": "Toutes les années",
+    "rating": "Note minimale",
+    "reset": "Réinitialiser les filtres",
+    "noMoreMovies": "Vous avez atteint la fin.",
+    "noMoviesFound": "Aucun film ne correspond à vos critères."
   },
   "settings": {
     "backToHome": "Retour à l'accueil",
@@ -68,20 +80,8 @@
     },
     "subscription": {
       "title": "Abonnement",
-      "currentPlan": "Abonnement actuel :"
+      "currentPlan": "Forfait actuel :"
     },
     "logout": "Déconnexion"
-  },
-  "explorePage": {
-    "title": "Explorer les films",
-    "filters": "Filtres",
-    "genre": "Genre",
-    "allGenres": "Tous les genres",
-    "year": "Année",
-    "allYears": "Toutes les années",
-    "rating": "Note minimale",
-    "reset": "Réinitialiser",
-    "loading": "Chargement de plus de films...",
-    "noMoreMovies": "Vous avez atteint la fin !"
   }
 }

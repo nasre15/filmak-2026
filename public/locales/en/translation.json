@@ -5,12 +5,12 @@
     "movies": "Movies",
     "new_popular": "New & Popular",
     "my_list": "My List",
-    "admin": "Admin",
-    "explore": "Explore"
+    "explore": "Explore",
+    "admin": "Admin"
   },
   "header": {
     "notifications": "Notifications",
-    "change_language": "Change Language"
+    "change_language": "Change language"
   },
   "userMenu": {
     "user": "StreamVerse User",
@@ -33,23 +33,35 @@
   },
   "homePage": {
     "footer": "© 2024 StreamVerse. All Rights Reserved.",
-    "noMovies": "No movies found to display.",
-    "tryAddingMovies": "Try adding some movies via the admin panel."
+    "noMovies": "No Movies Found",
+    "tryAddingMovies": "Try adding some movies from the admin panel."
   },
   "adminPage": {
+    "movieAdded": "Movie added!",
+    "movieAddedDescription": "{{title}} has been successfully added to the library.",
+    "errorAddingMovie": "Error Adding Movie",
     "backToHome": "Back to Home",
-    "title": "Add New Movie",
+    "title": "Add a New Movie",
     "movieTitle": "Movie Title",
-    "movieTitlePlaceholder": "e.g., Inception",
+    "movieTitlePlaceholder": "e.g., 'The Matrix'",
     "description": "Description",
-    "descriptionPlaceholder": "A brief synopsis of the movie...",
+    "descriptionPlaceholder": "A short summary of the movie...",
     "videoUrl": "Video URL",
-    "videoUrlPlaceholder": "e.g., https://example.com/video.mp4",
-    "save": "Add Movie",
-    "saving": "Adding...",
-    "movieAdded": "Movie Added!",
-    "movieAddedDescription": "{{title}} has been successfully added.",
-    "errorAddingMovie": "Error Adding Movie"
+    "videoUrlPlaceholder": "https://example.com/movie.mp4",
+    "saving": "Saving...",
+    "save": "Save Movie"
+  },
+  "explorePage": {
+    "title": "Explore Movies",
+    "filters": "Filters",
+    "genre": "Genre",
+    "allGenres": "All Genres",
+    "year": "Year",
+    "allYears": "All Years",
+    "rating": "Minimum Rating",
+    "reset": "Reset Filters",
+    "noMoreMovies": "You've reached the end.",
+    "noMoviesFound": "No movies found matching your criteria."
   },
   "settings": {
     "backToHome": "Back to Home",
@@ -71,17 +83,5 @@
       "currentPlan": "Current plan:"
     },
     "logout": "Logout"
-  },
-  "explorePage": {
-    "title": "Explore Movies",
-    "filters": "Filters",
-    "genre": "Genre",
-    "allGenres": "All Genres",
-    "year": "Year",
-    "allYears": "All Years",
-    "rating": "Minimum Rating",
-    "reset": "Reset Filters",
-    "loading": "Loading more movies...",
-    "noMoreMovies": "You've reached the end!"
   }
 }
