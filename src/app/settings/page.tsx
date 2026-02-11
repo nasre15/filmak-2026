@@ -1,5 +1,6 @@
-'use client';
+"use client";
 export const dynamic = 'force-dynamic';
+export const fetchCache = 'force-no-store';
 import { useTranslation } from 'react-i18next';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
