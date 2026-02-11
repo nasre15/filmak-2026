@@ -33,10 +33,6 @@ import { Film, Rocket, Smartphone, ArrowLeft, Bitcoin, Copy } from 'lucide-react
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
-
-// تم نقل الـ dynamic ليكون بعد الـ use client لضمان نجاح الـ build
-export const dynamic = 'force-dynamic';
-
 // Telegram SVG Icon Component
 const TelegramIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
