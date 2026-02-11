@@ -13,13 +13,13 @@ export default function MovieCard({ movie }: MovieCardProps) {
   const placeholder = PlaceHolderImages.find(p => p.imageUrl === movie.thumbnailURL);
 
   return (
-    <Link href={`/movie/${movie.id}`} className="block group relative aspect-video w-full overflow-hidden rounded-md shadow-lg">
+    <Link href={`/movie/${movie.id}`} className="block group relative aspect-video w-full overflow-hidden rounded-md shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30">
       <Image
         src={movie.thumbnailURL}
         alt={movie.title}
         width={500}
         height={281}
-        className="object-cover w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-110"
+        className="object-cover w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-105"
         data-ai-hint={placeholder?.imageHint}
       />
       <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
