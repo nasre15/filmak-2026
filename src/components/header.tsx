@@ -74,7 +74,9 @@ export default function Header() {
             <DropdownMenuSeparator />
             <DropdownMenuItem>{t('userMenu.profile')}</DropdownMenuItem>
             <DropdownMenuItem>{t('userMenu.billing')}</DropdownMenuItem>
-            <DropdownMenuItem>{t('userMenu.settings')}</DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/settings">{t('userMenu.settings')}</Link>
+            </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>{t('userMenu.logout')}</DropdownMenuItem>
           </DropdownMenuContent>
