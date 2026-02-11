@@ -26,10 +26,12 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
+  CardDescription,
 } from '@/components/ui/card';
-import { Film, Rocket, Smartphone, ArrowLeft } from 'lucide-react';
+import { Film, Rocket, Smartphone, ArrowLeft, Bitcoin, Copy } from 'lucide-react';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
+import Image from 'next/image';
 
 // Telegram SVG Icon Component
 const TelegramIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -73,6 +75,15 @@ export default function AboutPage() {
     
     window.open(telegramUrl, '_blank');
   }
+
+  const btcAddress = '1E9xnU6KRJ4VZRdW2csmEYkCmQZTMWfZCx';
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(btcAddress);
+    toast({
+      title: t('aboutPage.support.toastTitle', 'تم نسخ عنوان المحفظة بنجاح!'),
+    });
+  };
 
   return (
     <div dir={i18n.dir()} className="bg-[#050505] text-white min-h-screen p-4 sm:p-8">
@@ -189,6 +200,48 @@ export default function AboutPage() {
             </Card>
         </section>
         
+        <section className="mb-20">
+            <Card className="bg-card border-amber-500/50 w-full max-w-2xl mx-auto">
+                <CardHeader>
+                    <div className="flex items-center justify-center gap-3">
+                        <Bitcoin className="h-8 w-8 text-amber-500" />
+                        <CardTitle className="text-center text-3xl font-headline text-amber-400">{t('aboutPage.support.title', 'ادعم المشروع')}</CardTitle>
+                    </div>
+                    <CardDescription className="text-center !mt-2 text-muted-foreground/80">
+                        {t('aboutPage.support.description', 'لدعم استمرار المنصة والمحتوى المجاني')}
+                    </CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center gap-6">
+                    <div className="relative w-40 h-40 bg-white p-2 rounded-lg">
+                        <Image
+                            src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=1E9xnU6KRJ4VZRdW2csmEYkCmQZTMWfZCx"
+                            alt="Bitcoin QR Code"
+                            width={150}
+                            height={150}
+                        />
+                    </div>
+                    <div className="w-full space-y-2">
+                        <p className="text-center text-sm text-muted-foreground">
+                            {t('aboutPage.support.walletDescription', 'أو انسخ عنوان المحفظة التالي:')}
+                        </p>
+                        <div className="flex items-center gap-2 p-3 rounded-md bg-black/50 w-full">
+                            <code className="font-mono text-sm sm:text-base break-all text-amber-400 flex-1 text-center" dir="ltr">
+                                {btcAddress}
+                            </code>
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={handleCopy}
+                                className="text-white/70 hover:text-white"
+                            >
+                                <Copy className="h-5 w-5" />
+                            </Button>
+                        </div>
+                    </div>
+                </CardContent>
+            </Card>
+        </section>
+
         <footer className="text-center border-t border-border/20 pt-8">
             <h3 className="text-2xl font-headline mb-4">{t('aboutPage.contact.title', 'تواصل معنا')}</h3>
             <div className="flex items-center justify-center gap-4">
