@@ -20,6 +20,10 @@ const API_BASE_URL = 'https://api.themoviedb.org/3';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p';
 
 export async function addMovie(values: z.infer<typeof FormSchema>): Promise<AddMovieResult> {
+  if (!supabase) {
+    return { success: false, error: 'Database is not configured. Please set Supabase environment variables.' };
+  }
+
   const validation = FormSchema.safeParse(values);
   if (!validation.success) {
     return { success: false, error: 'Invalid input.' };

@@ -61,6 +61,10 @@ const mapSupabaseMovieToMovie = (supabaseMovie: any): Movie => {
 };
 
 export const getMovies = async (): Promise<Movie[]> => {
+  if (!supabase) {
+    console.log('Supabase not configured, returning empty movie list.');
+    return [];
+  }
   const { data: movies, error } = await supabase.from('movies').select('*');
   if (error) {
     console.error('Supabase getMovies error:', error);
@@ -79,22 +83,28 @@ export const getMovieById = async (id: string): Promise<Movie | undefined> => {
     return undefined;
   }
 
-  const { data: movie, error } = await supabase
-    .from('movies')
-    .select('*')
-    .eq('tmdb_id', numericId)
-    .single();
+  if (supabase) {
+    const { data: movie, error } = await supabase
+      .from('movies')
+      .select('*')
+      .eq('tmdb_id', numericId)
+      .single();
+    
+    if (movie) {
+      return mapSupabaseMovieToMovie(movie);
+    }
 
-  if (error || !movie) {
-    if (error) console.log('Movie not in Supabase, falling back to TMDB. Error:', error.message);
-    const tmdbMovie = await tmdbFetch(`/movie/${numericId}`);
-    if (!tmdbMovie) return undefined;
-
-    const genre = tmdbMovie.genres?.[0]?.name || 'Uncategorized';
-    return mapTmdbToMovie(tmdbMovie, genre);
+    if (error && error.code !== 'PGRST116') { // PGRST116 = "exact one row not found"
+      console.log('Movie not in Supabase, falling back to TMDB. Error:', error.message);
+    }
   }
 
-  return mapSupabaseMovieToMovie(movie);
+  // Fallback for when supabase is not configured or movie is not in our DB
+  const tmdbMovie = await tmdbFetch(`/movie/${numericId}`);
+  if (!tmdbMovie) return undefined;
+
+  const genre = tmdbMovie.genres?.[0]?.name || 'Uncategorized';
+  return mapTmdbToMovie(tmdbMovie, genre);
 };
 
 export const getMovieDetails = async (id: string): Promise<MovieDetails | null> => {
