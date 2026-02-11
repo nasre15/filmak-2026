@@ -6,7 +6,7 @@ import I18nClientProvider from '@/components/i18n-client-provider';
 
 export const metadata: Metadata = {
   title: 'Filmak - Your Ultimate Streaming Hub',
-  description: 'Your ultimate streaming hub.',
+  description: 'Watch the latest movies, anime, and sports for free on Filmak with high quality and Arabic subtitles.',
 };
 
 export default function RootLayout({
