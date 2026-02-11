@@ -46,6 +46,7 @@ const mapTmdbMovieToMovie = (tmdbMovie: any, genres: {id: number, name: string}[
         thumbnailURL: tmdbMovie.poster_path ? `${IMAGE_BASE_URL}/w500${tmdbMovie.poster_path}` : `https://picsum.photos/seed/${tmdbMovie.id}/500/281`,
         backdropURL: tmdbMovie.backdrop_path ? `${IMAGE_BASE_URL}/w1280${tmdbMovie.backdrop_path}` : `https://picsum.photos/seed/hero-${tmdbMovie.id}/1280/720`,
         isPremium: false, // TMDB doesn't have this concept
+        releaseYear: tmdbMovie.release_date ? tmdbMovie.release_date.substring(0, 4) : undefined,
     }
 };
 
@@ -128,5 +129,26 @@ export const getFeaturedMovie = async (): Promise<Movie | null> => {
     return mapTmdbMovieToMovie(movieDetails);
 };
 
+export const searchMovies = async (query: string): Promise<Movie[]> => {
+  if (!query) return [];
+  const data = await tmdbFetch('/search/movie', { query });
+  if (!data?.results) return [];
+  
+  const mapTmdbSearchToMovie = (tmdbMovie: any): Movie => {
+    return {
+        id: String(tmdbMovie.id),
+        title: tmdbMovie.title,
+        description: tmdbMovie.overview,
+        genre: 'N/A',
+        videoURL: '',
+        thumbnailURL: tmdbMovie.poster_path ? `${IMAGE_BASE_URL}/w92${tmdbMovie.poster_path}` : `https://picsum.photos/seed/p${tmdbMovie.id}/92/138`,
+        backdropURL: tmdbMovie.backdrop_path ? `${IMAGE_BASE_URL}/w1280${tmdbMovie.backdrop_path}` : `https://picsum.photos/seed/b${tmdbMovie.id}/1280/720`,
+        releaseYear: tmdbMovie.release_date ? tmdbMovie.release_date.substring(0, 4) : 'N/A',
+        isPremium: false,
+    }
+  };
+
+  return data.results.slice(0, 7).map(mapTmdbSearchToMovie);
+};
 
 export const getHeroImage = () => PlaceHolderImages.find(p => p.id === 'hero-1');

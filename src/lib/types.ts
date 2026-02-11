@@ -7,6 +7,7 @@ export interface Movie {
   thumbnailURL: string;
   isPremium?: boolean;
   backdropURL?: string;
+  releaseYear?: string;
 }
 
 export interface Profile {

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Bell, Search, Clapperboard } from 'lucide-react';
+import { Bell, Clapperboard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -15,6 +15,7 @@ import {
 import ConnectWalletButton from './connect-wallet-button';
 import LanguageSwitcher from './language-switcher';
 import { useTranslation } from 'react-i18next';
+import SearchBar from './search-bar';
 
 export default function Header() {
   const { t } = useTranslation();
@@ -44,11 +45,8 @@ export default function Header() {
           </Link>
         </nav>
       </div>
-      <div className="flex items-center gap-4">
-        <Button variant="ghost" size="icon">
-          <Search className="h-5 w-5" />
-          <span className="sr-only">{t('header.search')}</span>
-        </Button>
+      <div className="flex items-center gap-2 md:gap-4">
+        <SearchBar />
         <Button variant="ghost" size="icon">
           <Bell className="h-5 w-5" />
           <span className="sr-only">{t('header.notifications')}</span>
