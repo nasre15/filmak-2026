@@ -59,7 +59,7 @@ export async function discoverMovies(filters: DiscoverFilters): Promise<Movie[]>
       return [];
     }
     const data = await res.json();
-    return data.results.map(mapTmdbToMovie);
+    return data.results?.map(mapTmdbToMovie) ?? [];
   } catch (error) {
     console.error('Network error fetching from TMDB:', error);
     return [];

@@ -69,6 +69,11 @@ export default function ExplorePage() {
     router.push(`${pathname}${query}`, { scroll: false });
   }, [searchParams, router, pathname]);
 
+  // Sync URL rating changes to local slider state
+  useEffect(() => {
+    setLocalRating(rating);
+  }, [rating]);
+
   useEffect(() => {
     if (debouncedRating !== rating) {
       handleFilterChange('rating', debouncedRating);
