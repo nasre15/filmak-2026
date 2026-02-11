@@ -1,7 +1,6 @@
 "use client";
 
-export const dynamic = 'force-dynamic';
-
+import React from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
@@ -34,7 +33,9 @@ import { Film, Rocket, Smartphone, ArrowLeft, Bitcoin, Copy } from 'lucide-react
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
-import React from 'react';
+
+// تم نقل الـ dynamic ليكون بعد الـ use client لضمان نجاح الـ build
+export const dynamic = 'force-dynamic';
 
 // Telegram SVG Icon Component
 const TelegramIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -103,7 +104,7 @@ export default function AboutPage() {
 
         <header className="text-center mb-16">
           <h1
-            className="text-5xl md:text-7xl font-bold"
+            className="text-5xl md:text-7xl font-bold font-headline"
             style={{ textShadow: '0 0 15px #ff0000' }}
           >
             {t('aboutPage.title', 'من نحن')}
@@ -124,31 +125,29 @@ export default function AboutPage() {
                 <div className="mx-auto bg-red-600/10 p-4 rounded-full w-fit">
                   <Film className="h-10 w-10 text-red-600" />
                 </div>
-                <CardTitle className="pt-4 text-2xl text-white">{t('aboutPage.feature1.title', 'تنوع المحتوى')}</CardTitle>
+                <CardTitle className="pt-4 text-2xl text-white font-headline">{t('aboutPage.feature1.title', 'تنوع المحتوى')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-400">{t('aboutPage.feature1.description', 'أفلام، أنمي، رياضة والمزيد.')}</p>
               </CardContent>
             </Card>
-            
             <Card className="bg-[#111] border-white/10 text-center hover:border-red-600/50 transition-all">
               <CardHeader>
                  <div className="mx-auto bg-red-600/10 p-4 rounded-full w-fit">
                   <Rocket className="h-10 w-10 text-red-600" />
                 </div>
-                <CardTitle className="pt-4 text-2xl text-white">{t('aboutPage.feature2.title', 'سرعة البث')}</CardTitle>
+                <CardTitle className="pt-4 text-2xl text-white font-headline">{t('aboutPage.feature2.title', 'سرعة البث')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-400">{t('aboutPage.feature2.description', 'بث سريع بدون تقطيع.')}</p>
               </CardContent>
             </Card>
-
             <Card className="bg-[#111] border-white/10 text-center hover:border-red-600/50 transition-all">
               <CardHeader>
                  <div className="mx-auto bg-red-600/10 p-4 rounded-full w-fit">
                   <Smartphone className="h-10 w-10 text-red-600" />
                 </div>
-                <CardTitle className="pt-4 text-2xl text-white">{t('aboutPage.feature3.title', 'تجربة مستخدم')}</CardTitle>
+                <CardTitle className="pt-4 text-2xl text-white font-headline">{t('aboutPage.feature3.title', 'تجربة مستخدم')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-400">{t('aboutPage.feature3.description', 'تصميم متجاوب لجميع الأجهزة.')}</p>
@@ -158,9 +157,9 @@ export default function AboutPage() {
         </section>
 
         <section className="mb-20">
-            <Card className="bg-[#111] border-white/10 w-full max-w-2xl mx-auto">
+            <Card className="bg-[#111] border-white/10 w-full max-w-2xl mx-auto shadow-2xl shadow-red-900/10">
                 <CardHeader>
-                    <CardTitle className="text-center text-3xl text-white">{t('aboutPage.form.title', 'اطلب فيلمك')}</CardTitle>
+                    <CardTitle className="text-center text-3xl font-headline text-white">{t('aboutPage.form.title', 'اطلب فيلمك')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <Form {...form}>
@@ -172,7 +171,7 @@ export default function AboutPage() {
                                     <FormItem>
                                         <FormLabel className="text-gray-300">{t('aboutPage.form.movieName', 'اسم الفيلم')}</FormLabel>
                                         <FormControl>
-                                            <Input className="bg-black border-white/20 text-white" placeholder={t('aboutPage.form.movieNamePlaceholder', 'اكتب اسم الفيلم هنا...')} {...field} />
+                                            <Input className="bg-black border-white/10 text-white focus:border-red-600" placeholder={t('aboutPage.form.movieNamePlaceholder', 'اكتب اسم الفيلم هنا...')} {...field} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -186,11 +185,11 @@ export default function AboutPage() {
                                         <FormLabel className="text-gray-300">{t('aboutPage.form.movieType', 'نوع الفيلم')}</FormLabel>
                                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                                             <FormControl>
-                                                <SelectTrigger className="bg-black border-white/20">
+                                                <SelectTrigger className="bg-black border-white/10 text-white">
                                                     <SelectValue placeholder={t('aboutPage.form.movieTypePlaceholder', 'اختر النوع...')} />
                                                 </SelectTrigger>
                                             </FormControl>
-                                            <SelectContent className="bg-[#111] border-white/20 text-white">
+                                            <SelectContent className="bg-[#111] border-white/10 text-white">
                                                 <SelectItem value="Movie">{t('aboutPage.form.types.movie', 'فيلم')}</SelectItem>
                                                 <SelectItem value="Anime">{t('aboutPage.form.types.anime', 'أنمي')}</SelectItem>
                                                 <SelectItem value="Series">{t('aboutPage.form.types.series', 'مسلسل')}</SelectItem>
@@ -200,7 +199,7 @@ export default function AboutPage() {
                                     </FormItem>
                                 )}
                             />
-                            <Button type="submit" className="w-full h-12 text-lg bg-red-600 hover:bg-red-700 text-white transition-colors">
+                            <Button type="submit" className="w-full h-12 text-lg bg-red-600 hover:bg-red-700 text-white font-bold transition-all">
                                 {t('aboutPage.form.submit', 'إرسال الطلب عبر تلجرام')}
                             </Button>
                         </form>
@@ -210,9 +209,9 @@ export default function AboutPage() {
         </section>
 
         <footer className="text-center border-t border-white/10 pt-8 pb-12">
-            <h3 className="text-2xl mb-4 text-white">{t('aboutPage.contact.title', 'تواصل معنا')}</h3>
-            {telegramContact && <div className="flex items-center justify-center gap-4">
-                <TelegramIcon className="h-8 w-8 text-red-600"/>
+            <h3 className="text-2xl font-headline mb-4 text-white">{t('aboutPage.contact.title', 'تواصل معنا')}</h3>
+            {telegramContact && <div className="flex items-center justify-center gap-4 group">
+                <TelegramIcon className="h-8 w-8 text-red-600 group-hover:scale-110 transition-transform"/>
                 <a href={`https://t.me/${telegramContact}`} target="_blank" rel="noopener noreferrer" className="text-2xl font-bold tracking-wider hover:text-red-600 transition-colors text-white">
                     @{telegramContact}
                 </a>
@@ -221,4 +220,4 @@ export default function AboutPage() {
       </div>
     </div>
   );
-}
+                                                      }
