@@ -65,3 +65,30 @@ export async function discoverMovies(filters: DiscoverFilters): Promise<Movie[]>
     return [];
   }
 }
+
+export async function searchMovies(query: string, page: number = 1): Promise<Movie[]> {
+  if (!API_KEY || !query) {
+    return [];
+  }
+
+  const params = new URLSearchParams({
+    api_key: API_KEY,
+    query: query,
+    page: String(page),
+    include_adult: 'false',
+    language: 'en-US',
+  });
+
+  try {
+    const res = await fetch(`${API_BASE_URL}/search/movie?${params.toString()}`);
+    if (!res.ok) {
+      console.error(`Error fetching from TMDB search: ${res.status} ${res.statusText}`);
+      return [];
+    }
+    const data = await res.json();
+    return data.results?.map(mapTmdbToMovie) ?? [];
+  } catch (error) {
+    console.error('Network error during TMDB search:', error);
+    return [];
+  }
+}
