@@ -3,12 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-"scripts": {
     "dev": "next dev",
     "build": "next build || exit 0",
     "start": "next start",
     "lint": "next lint"
- },
+  },
   "dependencies": {
     "@genkit-ai/google-genai": "^1.20.0",
     "@genkit-ai/next": "^1.20.0",
