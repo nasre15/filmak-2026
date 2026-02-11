@@ -12,7 +12,7 @@ type WatchPageProps = {
 };
 
 export default async function WatchPage({ params }: WatchPageProps) {
-  const { id } = await params;
+  const { id } = params;
   const numericId = parseInt(id, 10);
   if (isNaN(numericId)) {
     notFound();
@@ -25,8 +25,6 @@ export default async function WatchPage({ params }: WatchPageProps) {
     notFound();
   }
 
-  const videoUrl = `https://embed.su/embed/movie/${id}`;
-
   return (
     <div className="relative h-screen w-screen bg-black">
       <Link href="/">
@@ -35,7 +33,7 @@ export default async function WatchPage({ params }: WatchPageProps) {
           <span className="sr-only">Back to browse</span>
         </Button>
       </Link>
-      <VideoPlayer videoUrl={videoUrl} />
+      <VideoPlayer movieId={id} />
     </div>
   );
 }
