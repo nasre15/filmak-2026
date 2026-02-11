@@ -4,6 +4,7 @@ import MovieCarousel from '@/components/movie-carousel';
 import { getMoviesByGenre, getFeaturedMovie } from '@/lib/data';
 import NoMoviesFound from '@/components/no-movies-found';
 import Footer from '@/components/footer';
+import WelcomeModal from '@/components/welcome-modal';
 
 export default async function Home() {
   const movieGenres = await getMoviesByGenre();
@@ -15,6 +16,7 @@ export default async function Home() {
         <Header />
         <NoMoviesFound />
         <Footer />
+        <WelcomeModal />
       </main>
     );
   }
@@ -29,6 +31,7 @@ export default async function Home() {
         ))}
       </div>
       <Footer />
+      <WelcomeModal />
     </main>
   );
 }
