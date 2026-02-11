@@ -140,7 +140,7 @@ export default function ExplorePage() {
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <div className="flex flex-1 container mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-        <aside className="w-full md:w-64 lg:w-72 md:pr-8 space-y-6 hidden md:block sticky top-16 self-start pt-8 h-[calc(100vh-4rem)] overflow-y-auto scrollbar-hide">
+        <aside className="w-full md:w-64 lg:w-72 md:pr-8 space-y-6 hidden md:block sticky top-16 self-start h-[calc(100vh-4rem)] overflow-y-auto scrollbar-hide">
           <h2 className="text-2xl font-bold">{t('explorePage.filters')}</h2>
 
           <div className="space-y-2">
