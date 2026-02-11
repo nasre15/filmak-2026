@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import Header from '@/components/header';
 import HeroBanner from '@/components/hero-banner';
 import MovieCarousel from '@/components/movie-carousel';
