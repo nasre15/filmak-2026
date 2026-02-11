@@ -66,7 +66,7 @@ export default function SearchBar() {
           <ul>
             {results.map((movie) => (
               <li key={movie.id}>
-                <Link href={`/watch/${movie.id}`} onClick={handleResultClick} className="flex items-center gap-4 p-3 hover:bg-accent transition-colors">
+                <Link href={`/movie/${movie.id}`} onClick={handleResultClick} className="flex items-center gap-4 p-3 hover:bg-accent transition-colors">
                   <div className="relative w-16 h-24 flex-shrink-0 bg-muted rounded-sm">
                     {movie.thumbnailURL && (
                        <Image

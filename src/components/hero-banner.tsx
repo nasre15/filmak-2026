@@ -39,10 +39,12 @@ export default function HeroBanner({ movie }: HeroBannerProps) {
               {t('hero.play')}
             </Button>
           </Link>
-          <Button size="lg" variant="secondary" className="bg-white/20 hover:bg-white/30 text-white">
-            <Info className="mr-2" />
-            {t('hero.more_info')}
-          </Button>
+          <Link href={`/movie/${movie.id}`}>
+            <Button size="lg" variant="secondary" className="bg-white/20 hover:bg-white/30 text-white">
+              <Info className="mr-2" />
+              {t('hero.more_info')}
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

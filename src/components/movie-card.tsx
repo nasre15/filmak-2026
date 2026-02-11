@@ -13,7 +13,7 @@ export default function MovieCard({ movie }: MovieCardProps) {
   const placeholder = PlaceHolderImages.find(p => p.imageUrl === movie.thumbnailURL);
 
   return (
-    <Link href={`/watch/${movie.id}`} className="block group relative aspect-video w-full overflow-hidden rounded-md shadow-lg">
+    <Link href={`/movie/${movie.id}`} className="block group relative aspect-video w-full overflow-hidden rounded-md shadow-lg">
       <Image
         src={movie.thumbnailURL}
         alt={movie.title}

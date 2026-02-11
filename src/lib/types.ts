@@ -10,6 +10,17 @@ export interface Movie {
   releaseYear?: string;
 }
 
+export interface MovieDetails extends Movie {
+  voteAverage: number;
+  genres: { id: number; name: string }[];
+  cast: {
+    id: number;
+    name: string;
+    character: string;
+    profileURL: string;
+  }[];
+}
+
 export interface Profile {
   id: string;
   name: string;

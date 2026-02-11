@@ -1,4 +1,4 @@
-import type { Movie, MovieGenre } from '@/lib/types';
+import type { Movie, MovieGenre, MovieDetails } from '@/lib/types';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { supabase } from './supabase-client';
 import { placeholderMovies } from './placeholder-movies';
@@ -97,6 +97,51 @@ export const getMovieById = async (id: string): Promise<Movie | undefined> => {
   return mapSupabaseMovieToMovie(movie);
 };
 
+export const getMovieDetails = async (id: string): Promise<MovieDetails | null> => {
+    if (id.startsWith('p-')) {
+        const placeholder = placeholderMovies.find(p => p.id === id);
+        if (!placeholder) return null;
+        return {
+            ...placeholder,
+            voteAverage: 7.5,
+            genres: [{id: 0, name: placeholder.genre}],
+            cast: [
+                { id: 1, name: 'Actor One', character: 'Main Character', profileURL: 'https://picsum.photos/seed/c1/185/278' },
+                { id: 2, name: 'Actor Two', character: 'Sidekick', profileURL: 'https://picsum.photos/seed/c2/185/278' },
+                { id: 3, name: 'Actor Three', character: 'Antagonist', profileURL: 'https://picsum.photos/seed/c3/185/278' },
+            ]
+        }
+    }
+
+
+  const data = await tmdbFetch(`/movie/${id}`, { append_to_response: 'credits' });
+
+  if (!data) return null;
+
+  return {
+    id: String(data.id),
+    title: data.title,
+    description: data.overview,
+    genre: data.genres?.[0]?.name || 'Uncategorized',
+    videoURL: '',
+    thumbnailURL: data.poster_path ? `${IMAGE_BASE_URL}/w500${data.poster_path}` : `https://picsum.photos/seed/p${data.id}/500/750`,
+    backdropURL: data.backdrop_path ? `${IMAGE_BASE_URL}/w1280${data.backdrop_path}` : `https://picsum.photos/seed/b${data.id}/1280/720`,
+    isPremium: false, 
+    releaseYear: data.release_date ? data.release_date.substring(0, 4) : 'N/A',
+    voteAverage: data.vote_average,
+    genres: data.genres,
+    cast: data.credits?.cast
+      .filter((c: any) => c.profile_path)
+      .slice(0, 10)
+      .map((c: any) => ({
+        id: c.id,
+        name: c.name,
+        character: c.character,
+        profileURL: `${IMAGE_BASE_URL}/w185${c.profile_path}`,
+      })) ?? [],
+  };
+};
+
 export const GENRES_TO_DISPLAY = [
     { id: 28, name: 'Action' },
     { id: 35, name: 'Comedy' },
@@ -156,7 +201,9 @@ export const getFeaturedMovie = async (): Promise<Movie | null> => {
     }
     
     console.log('Using placeholder for featured movie.');
-    return placeholderMovies[Math.floor(Math.random() * placeholderMovies.length)];
+    const featured = placeholderMovies[Math.floor(Math.random() * placeholderMovies.length)];
+    const details = await getMovieDetails(featured.id);
+    return details ? details : featured;
 };
 
 export const searchMovies = async (query: string): Promise<Movie[]> => {
