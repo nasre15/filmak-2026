@@ -42,9 +42,9 @@ export default function ExplorePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [hasMore, setHasMore] = useState(true);
 
-  // Filters state reflects the URL search params
-  const genre = searchParams.get('genre') || '';
-  const year = searchParams.get('year') || '';
+  // Filters state reflects the URL search params, defaulting to 'all'
+  const genre = searchParams.get('genre') || 'all';
+  const year = searchParams.get('year') || 'all';
   const rating = Number(searchParams.get('rating')) || 0;
   
   // Local state for controlled components to provide a better UX
@@ -58,7 +58,7 @@ export default function ExplorePage() {
     const current = new URLSearchParams(Array.from(searchParams.entries()));
     const stringValue = String(value);
 
-    if (stringValue && stringValue !== '0') {
+    if (stringValue && stringValue !== '0' && stringValue !== 'all') {
       current.set(type, stringValue);
     } else {
       current.delete(type);
@@ -88,7 +88,14 @@ export default function ExplorePage() {
   const fetchAndSetMovies = useCallback(async (filters, pageNum) => {
     setIsLoading(true);
     try {
-      const newMovies = await discoverMovies({ ...filters, page: pageNum });
+      const { genre: filterGenre, year: filterYear, rating: filterRating } = filters;
+      const newMovies = await discoverMovies({
+        genre: filterGenre === 'all' ? '' : filterGenre,
+        year: filterYear === 'all' ? '' : filterYear,
+        rating: filterRating,
+        page: pageNum,
+      });
+
       if (pageNum === 1) {
         setMovies(newMovies);
       } else {
@@ -143,7 +150,7 @@ export default function ExplorePage() {
                 <SelectValue placeholder={t('explorePage.allGenres')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">{t('explorePage.allGenres')}</SelectItem>
+                <SelectItem value="all">{t('explorePage.allGenres')}</SelectItem>
                 {GENRES_TO_DISPLAY.map((g) => (
                   <SelectItem key={g.id} value={String(g.id)}>{t(`genres.${g.name}`, g.name)}</SelectItem>
                 ))}
@@ -158,7 +165,7 @@ export default function ExplorePage() {
                 <SelectValue placeholder={t('explorePage.allYears')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">{t('explorePage.allYears')}</SelectItem>
+                <SelectItem value="all">{t('explorePage.allYears')}</SelectItem>
                 {yearOptions.map((y) => (
                   <SelectItem key={y} value={y}>{y}</SelectItem>
                 ))}
