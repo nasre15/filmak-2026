@@ -5,6 +5,19 @@ type VideoPlayerProps = {
 };
 
 export default function VideoPlayer({ movieId }: VideoPlayerProps) {
+  if (movieId.startsWith('p-')) {
+    return (
+      <div className="w-full h-full flex items-center justify-center bg-black text-white">
+        <div className="text-center">
+          <h2 className="text-2xl font-semibold">Placeholder Movie</h2>
+          <p className="text-muted-foreground mt-2">
+            This movie is for demonstration purposes and cannot be played.
+          </p>
+        </div>
+      </div>
+    );
+  }
+  
   const videoUrl = `https://vidsrc.icu/embed/movie/${movieId}`;
 
   return (

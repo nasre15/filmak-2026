@@ -1,6 +1,7 @@
 import type { Movie, MovieGenre } from '@/lib/types';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { supabase } from './supabase-client';
+import { placeholderMovies } from './placeholder-movies';
 
 const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 const API_BASE_URL = 'https://api.themoviedb.org/3';
@@ -54,21 +55,30 @@ export const getMovies = async (): Promise<Movie[]> => {
   return movies ? movies.map(mapSupabaseMovieToMovie) : [];
 };
 
-export const getMovieById = async (id: number): Promise<Movie | undefined> => {
+export const getMovieById = async (id: string): Promise<Movie | undefined> => {
+  if (id.startsWith('p-')) {
+    return placeholderMovies.find(p => p.id === id);
+  }
+
+  const numericId = parseInt(id, 10);
+  if (isNaN(numericId)) {
+    return undefined;
+  }
+
   const { data: movie, error } = await supabase
     .from('movies')
     .select('*')
-    .eq('tmdb_id', id)
+    .eq('tmdb_id', numericId)
     .single();
 
   if (error || !movie) {
     if (error) console.error('Supabase getMovieById error:', error.message);
     // Fallback to TMDB if not in our DB
-    const tmdbMovie = await tmdbFetch(`/movie/${id}`);
+    const tmdbMovie = await tmdbFetch(`/movie/${numericId}`);
     if (!tmdbMovie) return undefined;
 
-    const detailsRes = await tmdbFetch(`/movie/${tmdbMovie.id}?api_key=${API_KEY}`);
-    const movieDetails = await detailsRes.json();
+    const movieDetails = await tmdbFetch(`/movie/${tmdbMovie.id}`);
+    if (!movieDetails) return undefined;
     const genre = movieDetails.genres?.[0]?.name || 'Uncategorized';
 
     return {
@@ -96,23 +106,24 @@ const GENRES_TO_DISPLAY = [
 ];
 
 export const getMoviesByGenre = async (): Promise<MovieGenre[]> => {
-    const { data: allMovies, error } = await supabase.from('movies').select('*');
+    const { data: supabaseMovies, error } = await supabase.from('movies').select('*');
     
-    if (error) {
-        console.error('Supabase getMoviesByGenre error:', error);
-        return [];
-    }
-    
-    if (!allMovies || allMovies.length === 0) {
-        return [];
-    }
+    let allMovies: Movie[] = [];
 
+    // Use placeholders if there are fewer than 10 movies in the database.
+    if (error || !supabaseMovies || supabaseMovies.length < 10) {
+        if(error) console.error('Supabase getMoviesByGenre error:', error);
+        console.log('Supabase movie count is low, using placeholder movie data.');
+        allMovies = placeholderMovies;
+    } else {
+        console.log('Using Supabase movie data.');
+        allMovies = supabaseMovies.map(mapSupabaseMovieToMovie);
+    }
+    
     const movieGenres: MovieGenre[] = [];
     
     for (const genre of GENRES_TO_DISPLAY) {
-        const genreMovies = allMovies
-            .filter(m => m.genre === genre.name)
-            .map(mapSupabaseMovieToMovie);
+        const genreMovies = allMovies.filter(m => m.genre === genre.name);
         
         if (genreMovies.length > 0) {
             movieGenres.push({
@@ -123,7 +134,7 @@ export const getMoviesByGenre = async (): Promise<MovieGenre[]> => {
     }
 
     if (movieGenres.length === 0 && allMovies.length > 0) {
-        return [{ title: 'All Movies', movies: allMovies.map(mapSupabaseMovieToMovie) }];
+        return [{ title: 'All Movies', movies: allMovies }];
     }
     
     return movieGenres;
@@ -133,7 +144,8 @@ export const getFeaturedMovie = async (): Promise<Movie | null> => {
     const { data: movies, error } = await supabase.from('movies').select('*');
     if (error || !movies || movies.length === 0) {
       if (error) console.error('Supabase getFeaturedMovie error:', error);
-      return null;
+      console.log('Using placeholder for featured movie.');
+      return placeholderMovies[Math.floor(Math.random() * placeholderMovies.length)];
     }
     
     const featured = movies[Math.floor(Math.random() * movies.length)];

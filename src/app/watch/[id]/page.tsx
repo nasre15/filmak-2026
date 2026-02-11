@@ -13,13 +13,7 @@ type WatchPageProps = {
 
 export default async function WatchPage({ params }: WatchPageProps) {
   const { id } = params;
-  const numericId = parseInt(id, 10);
-  if (isNaN(numericId)) {
-    notFound();
-  }
-
-  // We fetch movie details to ensure the movie exists before trying to play it.
-  const movie = await getMovieById(numericId);
+  const movie = await getMovieById(id);
 
   if (!movie) {
     notFound();
