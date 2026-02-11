@@ -1,8 +1,32 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
-import { Bell, Clapperboard, Compass, Menu, ChevronDown } from 'lucide-react';
+import React, { useState } from 'react';
+import {
+  Bell,
+  Clapperboard,
+  Compass,
+  Menu,
+  ChevronDown,
+  Bomb,
+  Film,
+  Smile,
+  Gavel,
+  Camera,
+  Drama,
+  Users,
+  Sparkles,
+  ScrollText,
+  Ghost,
+  Music2,
+  KeyRound,
+  Heart,
+  Rocket,
+  Tv,
+  Spline,
+  Shield,
+  Sun,
+} from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/ui/button';
@@ -54,13 +78,36 @@ function GenresMenu() {
 }
 
 export default function Header() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+  const dir = i18n.dir();
+
   const mainNavLinks = [
     { key: 'home', label: t('nav.home'), href: '/' },
     { key: 'explore', label: t('nav.explore'), href: '/explore', icon: Compass },
   ];
+
+  const genreIcons: { [key: string]: React.ElementType } = {
+    Action: Bomb,
+    Adventure: Compass,
+    Animation: Film,
+    Comedy: Smile,
+    Crime: Gavel,
+    Documentary: Camera,
+    Drama: Drama,
+    Family: Users,
+    Fantasy: Sparkles,
+    History: ScrollText,
+    Horror: Ghost,
+    Music: Music2,
+    Mystery: KeyRound,
+    Romance: Heart,
+    'Science Fiction': Rocket,
+    'TV Movie': Tv,
+    Thriller: Spline,
+    War: Shield,
+    Western: Sun,
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between h-16 px-4 md:px-8 bg-gradient-to-b from-black/80 to-transparent transition-all duration-300">
@@ -73,33 +120,37 @@ export default function Header() {
                 <span className="sr-only">{t('header.openMenu', 'Open menu')}</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-64 p-0">
+            <SheetContent side={dir === 'rtl' ? 'right' : 'left'} className="w-64 p-0">
               <ScrollArea className="h-full">
                 <div className="p-6">
                   <nav className="flex flex-col gap-4">
                     {mainNavLinks.map((link) => (
                       <SheetClose asChild key={link.key}>
                         <Link href={link.href} className="text-lg font-medium">
-                          {link.label}
+                          <span dir="auto">{link.label}</span>
                         </Link>
                       </SheetClose>
                     ))}
                     <SheetClose asChild>
                       <Link href="/admin" className="text-lg font-medium text-foreground/80 hover:text-foreground">
-                        {t('nav.admin')}
+                        <span dir="auto">{t('nav.admin')}</span>
                       </Link>
                     </SheetClose>
                   </nav>
                   <Separator className="my-4" />
-                  <h3 className="text-lg font-semibold mb-2">{t('nav.genres')}</h3>
+                  <h3 className="text-lg font-semibold mb-2" dir="auto">{t('nav.genres')}</h3>
                   <nav className="flex flex-col gap-2">
-                    {ALL_GENRES.map((genre) => (
-                      <SheetClose asChild key={genre.id}>
-                        <Link href={`/explore?genre=${genre.id}`} className="text-base text-foreground/80 hover:text-foreground">
-                          {t(`genres.${genre.name.replace(/ /g, '')}`, genre.name)}
-                        </Link>
-                      </SheetClose>
-                    ))}
+                    {ALL_GENRES.map((genre) => {
+                      const Icon = genreIcons[genre.name];
+                      return (
+                        <SheetClose asChild key={genre.id}>
+                          <Link href={`/explore?genre=${genre.id}`} className="flex items-center gap-3 text-base text-foreground/80 hover:text-foreground">
+                            {Icon && <Icon className="h-5 w-5" />}
+                            <span dir="auto">{t(`genres.${genre.name.replace(/ /g, '')}`, genre.name)}</span>
+                          </Link>
+                        </SheetClose>
+                      );
+                    })}
                   </nav>
                 </div>
               </ScrollArea>
