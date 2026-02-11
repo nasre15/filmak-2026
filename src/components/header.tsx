@@ -131,11 +131,6 @@ export default function Header() {
                         </Link>
                       </SheetClose>
                     ))}
-                    <SheetClose asChild>
-                      <Link href="/admin" className="text-lg font-medium text-foreground/80 hover:text-foreground">
-                        <span dir="auto">{t('nav.admin')}</span>
-                      </Link>
-                    </SheetClose>
                   </nav>
                   <Separator className="my-4" />
                   <h3 className="text-lg font-semibold mb-2" dir="auto">{t('nav.genres')}</h3>
@@ -171,9 +166,6 @@ export default function Header() {
             {t('nav.explore')}
           </Link>
           <GenresMenu />
-          <Link href="/admin" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
-            {t('nav.admin')}
-          </Link>
         </nav>
       </div>
       <div className="flex items-center gap-2 md:gap-4">
