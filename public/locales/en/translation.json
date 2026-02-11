@@ -8,41 +8,68 @@
     "admin": "Admin"
   },
   "header": {
-    "search": "Search",
     "notifications": "Notifications",
-    "connect_wallet": "Connect Wallet",
     "change_language": "Change language"
   },
   "userMenu": {
-    "user": "User",
+    "user": "StreamVerse User",
     "email": "user@example.com",
     "profile": "Profile",
     "billing": "Billing",
     "settings": "Settings",
-    "logout": "Log out"
+    "logout": "Logout"
+  },
+  "homePage": {
+    "footer": "© 2024 StreamVerse. All rights reserved.",
+    "noMovies": "No Movies Found",
+    "tryAddingMovies": "Try adding some movies in the admin panel."
   },
   "hero": {
     "play": "Play",
     "more_info": "More Info"
   },
+  "genres": {
+    "Action": "Action",
+    "Comedy": "Comedy",
+    "Science Fiction": "Science Fiction",
+    "Drama": "Drama",
+    "Horror": "Horror",
+    "Trending Now": "Trending Now"
+  },
   "adminPage": {
     "title": "Add New Movie",
-    "movieTitle": "Title",
-    "movieTitlePlaceholder": "e.g., The Cosmic Adventure",
+    "movieTitle": "Movie Title",
+    "movieTitlePlaceholder": "e.g., The Matrix",
     "description": "Description",
-    "descriptionPlaceholder": "e.g., A thrilling journey through space...",
+    "descriptionPlaceholder": "A short summary of the movie...",
     "videoUrl": "Video URL",
     "videoUrlPlaceholder": "https://example.com/video.mp4",
     "save": "Save Movie",
     "saving": "Saving...",
-    "backToHome": "Back to Home",
-    "movieAdded": "Movie Added",
-    "movieAddedDescription": "\"{{title}}\" has been successfully added.",
-    "errorAddingMovie": "Error Adding Movie"
+    "movieAdded": "Movie Added!",
+    "movieAddedDescription": "{{title}} has been added to the library.",
+    "errorAddingMovie": "Error adding movie",
+    "backToHome": "Back to Home"
   },
-  "homePage": {
-    "noMovies": "No movies found.",
-    "tryAddingMovies": "Try adding some movies in the admin panel.",
-    "footer": "StreamVerse - All rights reserved."
+  "settings": {
+    "title": "Settings",
+    "description": "Manage your account settings.",
+    "backToHome": "Back to Home",
+    "profile": {
+      "title": "Profile"
+    },
+    "preferences": {
+      "title": "Preferences",
+      "language": "Language",
+      "theme": {
+        "title": "Theme",
+        "description": "Toggle between light and dark mode."
+      }
+    },
+    "subscription": {
+      "title": "Subscription",
+      "currentPlan": "Current plan:"
+    },
+    "logout": "Logout"
   }
 }

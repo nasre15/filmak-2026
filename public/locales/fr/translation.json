@@ -3,46 +3,73 @@
     "home": "Accueil",
     "tv_shows": "Séries TV",
     "movies": "Films",
-    "new_popular": "Nouveautés",
-    "my_list": "Ma Liste",
+    "new_popular": "Nouveautés et populaires",
+    "my_list": "Ma liste",
     "admin": "Admin"
   },
   "header": {
-    "search": "Rechercher",
     "notifications": "Notifications",
-    "connect_wallet": "Connecter le portefeuille",
     "change_language": "Changer de langue"
   },
   "userMenu": {
-    "user": "Utilisateur",
+    "user": "Utilisateur StreamVerse",
     "email": "utilisateur@example.com",
     "profile": "Profil",
     "billing": "Facturation",
     "settings": "Paramètres",
-    "logout": "Se déconnecter"
+    "logout": "Déconnexion"
+  },
+  "homePage": {
+    "footer": "© 2024 StreamVerse. Tous droits réservés.",
+    "noMovies": "Aucun film trouvé",
+    "tryAddingMovies": "Essayez d'ajouter des films dans le panneau d'administration."
   },
   "hero": {
     "play": "Lecture",
     "more_info": "Plus d'infos"
   },
+  "genres": {
+    "Action": "Action",
+    "Comedy": "Comédie",
+    "Science Fiction": "Science-Fiction",
+    "Drama": "Drame",
+    "Horror": "Horreur",
+    "Trending Now": "Tendances actuelles"
+  },
   "adminPage": {
     "title": "Ajouter un nouveau film",
-    "movieTitle": "Titre",
-    "movieTitlePlaceholder": "ex: L'Aventure Cosmique",
+    "movieTitle": "Titre du film",
+    "movieTitlePlaceholder": "ex: The Matrix",
     "description": "Description",
-    "descriptionPlaceholder": "ex: Un voyage palpitant à travers l'espace...",
+    "descriptionPlaceholder": "Un bref résumé du film...",
     "videoUrl": "URL de la vidéo",
     "videoUrlPlaceholder": "https://example.com/video.mp4",
     "save": "Enregistrer le film",
     "saving": "Enregistrement...",
-    "backToHome": "Retour à l'accueil",
-    "movieAdded": "Film ajouté",
-    "movieAddedDescription": "\"{{title}}\" a été ajouté avec succès.",
-    "errorAddingMovie": "Erreur lors de l'ajout du film"
+    "movieAdded": "Film ajouté !",
+    "movieAddedDescription": "{{title}} a été ajouté à la bibliothèque.",
+    "errorAddingMovie": "Erreur lors de l'ajout du film",
+    "backToHome": "Retour à l'accueil"
   },
-  "homePage": {
-    "noMovies": "Aucun film trouvé.",
-    "tryAddingMovies": "Essayez d'ajouter des films dans le panneau d'administration.",
-    "footer": "StreamVerse - Tous droits réservés."
+  "settings": {
+    "title": "Paramètres",
+    "description": "Gérez les paramètres de votre compte.",
+    "backToHome": "Retour à l'accueil",
+    "profile": {
+      "title": "Profil"
+    },
+    "preferences": {
+      "title": "Préférences",
+      "language": "Langue",
+      "theme": {
+        "title": "Thème",
+        "description": "Basculez entre le mode clair et le mode sombre."
+      }
+    },
+    "subscription": {
+      "title": "Abonnement",
+      "currentPlan": "Plan actuel :"
+    },
+    "logout": "Déconnexion"
   }
 }

@@ -1,5 +1,8 @@
+'use client';
+
 import type { Movie } from '@/lib/types';
 import MovieCard from './movie-card';
+import { useTranslation } from 'react-i18next';
 
 type MovieCarouselProps = {
   title: string;
@@ -7,9 +10,10 @@ type MovieCarouselProps = {
 };
 
 export default function MovieCarousel({ title, movies }: MovieCarouselProps) {
+  const { t } = useTranslation();
   return (
     <section className="space-y-4 my-8">
-      <h2 className="text-2xl font-semibold font-headline px-4 md:px-8">{title}</h2>
+      <h2 className="text-2xl font-semibold font-headline px-4 md:px-8">{t(`genres.${title}`, title)}</h2>
       <div className="relative">
         <div className="flex space-x-4 overflow-x-auto pb-4 px-4 md:px-8 scrollbar-hide">
           {movies.map((movie) => (
