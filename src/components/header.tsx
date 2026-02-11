@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Bell, Clapperboard, Grid } from 'lucide-react';
+import { Bell, Clapperboard, LayoutGrid } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -34,15 +34,18 @@ export default function Header() {
           <h1 className="hidden md:block">StreamVerse</h1>
         </Link>
         <nav className="hidden lg:flex items-center gap-4">
-          {navLinks.map((link) => (
+          <Link key={navLinks[0].key} href={navLinks[0].href} className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            {navLinks[0].label}
+          </Link>
+           <Link href="/explore" className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            <LayoutGrid className="h-4 w-4" />
+            {t('nav.explore')}
+          </Link>
+          {navLinks.slice(1).map((link) => (
             <Link key={link.key} href={link.href} className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
               {link.label}
             </Link>
           ))}
-           <Link href="/explore" className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
-            <Grid className="h-4 w-4" />
-            {t('nav.explore')}
-          </Link>
           <Link href="/admin" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
             {t('nav.admin')}
           </Link>
