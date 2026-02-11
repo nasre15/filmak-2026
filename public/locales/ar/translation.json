@@ -3,26 +3,22 @@
     "home": "الرئيسية",
     "tv_shows": "برامج تلفزيونية",
     "movies": "أفلام",
-    "new_popular": "جديد وشائع",
+    "new_popular": "جديد وشائج",
     "my_list": "قائمتي",
-    "admin": "مسؤول"
+    "admin": "مسؤل",
+    "explore": "استكشف"
   },
   "header": {
-    "notifications": "الإشعارات",
-    "change_language": "تغيير اللغة"
+    "notifications": "إشعارات",
+    "change_language": "غير اللغة"
   },
   "userMenu": {
-    "user": "مستخدم StreamVerse",
+    "user": "مستخدم ستريم فيرس",
     "email": "user@example.com",
     "profile": "الملف الشخصي",
     "billing": "الفواتير",
     "settings": "الإعدادات",
     "logout": "تسجيل الخروج"
-  },
-  "homePage": {
-    "footer": "© 2024 StreamVerse. كل الحقوق محفوظة.",
-    "noMovies": "لم يتم العثور على أفلام",
-    "tryAddingMovies": "حاول إضافة بعض الأفلام في لوحة الإدارة."
   },
   "hero": {
     "play": "تشغيل",
@@ -33,28 +29,32 @@
     "Comedy": "كوميديا",
     "Science Fiction": "خيال علمي",
     "Drama": "دراما",
-    "Horror": "رعب",
-    "Trending Now": "الأكثر رواجاً الآن"
+    "Horror": "رعب"
+  },
+  "homePage": {
+    "footer": "© 2024 ستريم فيرس. كل الحقوق محفوظة.",
+    "noMovies": "لم يتم العثور على أفلام لعرضها.",
+    "tryAddingMovies": "حاول إضافة بعض الأفلام عبر لوحة الإدارة."
   },
   "adminPage": {
+    "backToHome": "العودة إلى الرئيسية",
     "title": "إضافة فيلم جديد",
     "movieTitle": "عنوان الفيلم",
-    "movieTitlePlaceholder": "مثال: The Matrix",
+    "movieTitlePlaceholder": "مثال: Inception",
     "description": "الوصف",
-    "descriptionPlaceholder": "ملخص قصير للفيلم...",
+    "descriptionPlaceholder": "نبذة مختصرة عن الفيلم...",
     "videoUrl": "رابط الفيديو",
-    "videoUrlPlaceholder": "https://example.com/video.mp4",
-    "save": "حفظ الفيلم",
-    "saving": "جار الحفظ...",
+    "videoUrlPlaceholder": "مثال: https://example.com/video.mp4",
+    "save": "إضافة فيلم",
+    "saving": "جارٍ الإضافة...",
     "movieAdded": "تمت إضافة الفيلم!",
-    "movieAddedDescription": "تمت إضافة {{title}} إلى المكتبة.",
-    "errorAddingMovie": "خطأ في إضافة الفيلم",
-    "backToHome": "العودة إلى الرئيسية"
+    "movieAddedDescription": "تمت إضافة {{title}} بنجاح.",
+    "errorAddingMovie": "خطأ في إضافة الفيلم"
   },
   "settings": {
+    "backToHome": "العودة إلى الرئيسية",
     "title": "الإعدادات",
     "description": "إدارة إعدادات حسابك.",
-    "backToHome": "العودة إلى الرئيسية",
     "profile": {
       "title": "الملف الشخصي"
     },
@@ -71,5 +71,17 @@
       "currentPlan": "الخطة الحالية:"
     },
     "logout": "تسجيل الخروج"
+  },
+  "explorePage": {
+    "title": "استكشف الأفلام",
+    "filters": "الفلاتر",
+    "genre": "النوع",
+    "allGenres": "كل الأنواع",
+    "year": "السنة",
+    "allYears": "كل السنوات",
+    "rating": "أقل تقييم",
+    "reset": "إعادة تعيين",
+    "loading": "جاري تحميل المزيد من الأفلام...",
+    "noMoreMovies": "لقد وصلت إلى النهاية!"
   }
 }

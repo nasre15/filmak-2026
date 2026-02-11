@@ -3,9 +3,10 @@
     "home": "Accueil",
     "tv_shows": "Séries TV",
     "movies": "Films",
-    "new_popular": "Nouveautés et populaires",
+    "new_popular": "Nouveautés",
     "my_list": "Ma liste",
-    "admin": "Admin"
+    "admin": "Admin",
+    "explore": "Explorer"
   },
   "header": {
     "notifications": "Notifications",
@@ -13,16 +14,11 @@
   },
   "userMenu": {
     "user": "Utilisateur StreamVerse",
-    "email": "utilisateur@example.com",
+    "email": "user@example.com",
     "profile": "Profil",
     "billing": "Facturation",
     "settings": "Paramètres",
     "logout": "Déconnexion"
-  },
-  "homePage": {
-    "footer": "© 2024 StreamVerse. Tous droits réservés.",
-    "noMovies": "Aucun film trouvé",
-    "tryAddingMovies": "Essayez d'ajouter des films dans le panneau d'administration."
   },
   "hero": {
     "play": "Lecture",
@@ -33,28 +29,32 @@
     "Comedy": "Comédie",
     "Science Fiction": "Science-Fiction",
     "Drama": "Drame",
-    "Horror": "Horreur",
-    "Trending Now": "Tendances actuelles"
+    "Horror": "Horreur"
+  },
+  "homePage": {
+    "footer": "© 2024 StreamVerse. Tous droits réservés.",
+    "noMovies": "Aucun film trouvé à afficher.",
+    "tryAddingMovies": "Essayez d'ajouter des films via le panneau d'administration."
   },
   "adminPage": {
+    "backToHome": "Retour à l'accueil",
     "title": "Ajouter un nouveau film",
     "movieTitle": "Titre du film",
-    "movieTitlePlaceholder": "ex: The Matrix",
+    "movieTitlePlaceholder": "ex: Inception",
     "description": "Description",
-    "descriptionPlaceholder": "Un bref résumé du film...",
+    "descriptionPlaceholder": "Un bref synopsis du film...",
     "videoUrl": "URL de la vidéo",
-    "videoUrlPlaceholder": "https://example.com/video.mp4",
-    "save": "Enregistrer le film",
-    "saving": "Enregistrement...",
+    "videoUrlPlaceholder": "ex: https://example.com/video.mp4",
+    "save": "Ajouter le film",
+    "saving": "Ajout en cours...",
     "movieAdded": "Film ajouté !",
-    "movieAddedDescription": "{{title}} a été ajouté à la bibliothèque.",
-    "errorAddingMovie": "Erreur lors de l'ajout du film",
-    "backToHome": "Retour à l'accueil"
+    "movieAddedDescription": "{{title}} a été ajouté avec succès.",
+    "errorAddingMovie": "Erreur lors de l'ajout du film"
   },
   "settings": {
+    "backToHome": "Retour à l'accueil",
     "title": "Paramètres",
     "description": "Gérez les paramètres de votre compte.",
-    "backToHome": "Retour à l'accueil",
     "profile": {
       "title": "Profil"
     },
@@ -63,13 +63,25 @@
       "language": "Langue",
       "theme": {
         "title": "Thème",
-        "description": "Basculez entre le mode clair et le mode sombre."
+        "description": "Basculez entre le mode clair et sombre."
       }
     },
     "subscription": {
       "title": "Abonnement",
-      "currentPlan": "Plan actuel :"
+      "currentPlan": "Abonnement actuel :"
     },
     "logout": "Déconnexion"
+  },
+  "explorePage": {
+    "title": "Explorer les films",
+    "filters": "Filtres",
+    "genre": "Genre",
+    "allGenres": "Tous les genres",
+    "year": "Année",
+    "allYears": "Toutes les années",
+    "rating": "Note minimale",
+    "reset": "Réinitialiser",
+    "loading": "Chargement de plus de films...",
+    "noMoreMovies": "Vous avez atteint la fin !"
   }
 }

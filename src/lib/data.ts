@@ -97,7 +97,7 @@ export const getMovieById = async (id: string): Promise<Movie | undefined> => {
   return mapSupabaseMovieToMovie(movie);
 };
 
-const GENRES_TO_DISPLAY = [
+export const GENRES_TO_DISPLAY = [
     { id: 28, name: 'Action' },
     { id: 35, name: 'Comedy' },
     { id: 878, name: 'Science Fiction' },
