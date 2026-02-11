@@ -1,5 +1,6 @@
 import type { Movie, MovieGenre } from '@/lib/types';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { supabase } from './supabase-client';
 
 const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 const API_BASE_URL = 'https://api.themoviedb.org/3';
@@ -30,45 +31,60 @@ const tmdbFetch = async (path: string, params: Record<string, string> = {}) => {
   }
 };
 
-const mapTmdbMovieToMovie = (tmdbMovie: any, genres: {id: number, name: string}[] = []): Movie => {
-    const getGenreName = (genreIds: number[]) => {
-        if (!genres.length || !genreIds || genreIds.length === 0) return 'Uncategorized';
-        const genre = genres.find(g => g.id === genreIds[0]);
-        return genre ? genre.name : 'Uncategorized';
+const mapSupabaseMovieToMovie = (supabaseMovie: any): Movie => {
+    return {
+        id: String(supabaseMovie.tmdb_id),
+        title: supabaseMovie.title,
+        description: supabaseMovie.description,
+        genre: supabaseMovie.genre,
+        videoURL: supabaseMovie.video_url,
+        thumbnailURL: supabaseMovie.thumbnail_url,
+        backdropURL: supabaseMovie.backdrop_url,
+        isPremium: supabaseMovie.is_premium,
+        releaseYear: supabaseMovie.release_year,
     };
+};
+
+export const getMovies = async (): Promise<Movie[]> => {
+  const { data: movies, error } = await supabase.from('movies').select('*');
+  if (error) {
+    console.error('Supabase getMovies error:', error);
+    return [];
+  }
+  return movies ? movies.map(mapSupabaseMovieToMovie) : [];
+};
+
+export const getMovieById = async (id: number): Promise<Movie | undefined> => {
+  const { data: movie, error } = await supabase
+    .from('movies')
+    .select('*')
+    .eq('tmdb_id', id)
+    .single();
+
+  if (error || !movie) {
+    if (error) console.error('Supabase getMovieById error:', error.message);
+    // Fallback to TMDB if not in our DB
+    const tmdbMovie = await tmdbFetch(`/movie/${id}`);
+    if (!tmdbMovie) return undefined;
+
+    const detailsRes = await tmdbFetch(`/movie/${tmdbMovie.id}?api_key=${API_KEY}`);
+    const movieDetails = await detailsRes.json();
+    const genre = movieDetails.genres?.[0]?.name || 'Uncategorized';
 
     return {
         id: String(tmdbMovie.id),
         title: tmdbMovie.title,
         description: tmdbMovie.overview,
-        genre: tmdbMovie.genres ? tmdbMovie.genres[0]?.name || 'Uncategorized' : getGenreName(tmdbMovie.genre_ids),
-        videoURL: '', // This is constructed on the watch page using the movie ID
+        genre: genre,
+        videoURL: '',
         thumbnailURL: tmdbMovie.poster_path ? `${IMAGE_BASE_URL}/w500${tmdbMovie.poster_path}` : `https://picsum.photos/seed/${tmdbMovie.id}/500/281`,
         backdropURL: tmdbMovie.backdrop_path ? `${IMAGE_BASE_URL}/w1280${tmdbMovie.backdrop_path}` : `https://picsum.photos/seed/hero-${tmdbMovie.id}/1280/720`,
-        isPremium: false, // TMDB doesn't have this concept
+        isPremium: false,
         releaseYear: tmdbMovie.release_date ? tmdbMovie.release_date.substring(0, 4) : undefined,
     }
-};
+  }
 
-const getTmdbGenres = async (): Promise<{id: number, name: string}[]> => {
-    const data = await tmdbFetch('/genre/movie/list');
-    return data?.genres || [];
-}
-
-export const getMovies = async (): Promise<Movie[]> => {
-  const data = await tmdbFetch('/trending/movie/week');
-  if (!data?.results) return [];
-  const genres = await getTmdbGenres();
-  return data.results.map((movie: any) => mapTmdbMovieToMovie(movie, genres));
-};
-
-export const getMovieById = async (id: number): Promise<Movie | undefined> => {
-  const movieData = await tmdbFetch(`/movie/${id}`);
-  if (!movieData) return undefined;
-
-  const movie = mapTmdbMovieToMovie(movieData);
-
-  return movie;
+  return mapSupabaseMovieToMovie(movie);
 };
 
 const GENRES_TO_DISPLAY = [
@@ -80,53 +96,48 @@ const GENRES_TO_DISPLAY = [
 ];
 
 export const getMoviesByGenre = async (): Promise<MovieGenre[]> => {
-    const allGenres = await getTmdbGenres();
+    const { data: allMovies, error } = await supabase.from('movies').select('*');
     
-    const movieGenres: MovieGenre[] = [];
+    if (error) {
+        console.error('Supabase getMoviesByGenre error:', error);
+        return [];
+    }
     
-    const genresToShow = GENRES_TO_DISPLAY.filter(gtd => allGenres.some(ag => ag.id === gtd.id));
-
-    if (genresToShow.length === 0 && allGenres.length > 0) {
-        genresToShow.push(...allGenres.slice(0, 5));
+    if (!allMovies || allMovies.length === 0) {
+        return [];
     }
 
-    for (const genre of genresToShow) {
-        const data = await tmdbFetch('/discover/movie', { with_genres: String(genre.id), sort_by: 'popularity.desc' });
-        if (data?.results) {
-            const movies = data.results.map((movie: any) => mapTmdbMovieToMovie(movie, allGenres));
+    const movieGenres: MovieGenre[] = [];
+    
+    for (const genre of GENRES_TO_DISPLAY) {
+        const genreMovies = allMovies
+            .filter(m => m.genre === genre.name)
+            .map(mapSupabaseMovieToMovie);
+        
+        if (genreMovies.length > 0) {
             movieGenres.push({
                 title: genre.name,
-                movies: movies,
+                movies: genreMovies,
             });
         }
     }
 
-    if (movieGenres.length === 0) {
-        const trending = await getMovies();
-        if (trending.length > 0) {
-            return [{ title: 'Trending Now', movies: trending }];
-        }
+    if (movieGenres.length === 0 && allMovies.length > 0) {
+        return [{ title: 'All Movies', movies: allMovies.map(mapSupabaseMovieToMovie) }];
     }
     
     return movieGenres;
 };
 
 export const getFeaturedMovie = async (): Promise<Movie | null> => {
-    const data = await tmdbFetch('/movie/popular');
-    if (!data?.results?.[0]) {
-        return null;
-    }
-    // Pick a random movie from the top 10 popular
-    const top10 = data.results.slice(0, 10);
-    const featuredTmdb = top10[Math.floor(Math.random() * top10.length)];
-    
-    // Fetch full details to get genres and a better backdrop
-    const movieDetails = await tmdbFetch(`/movie/${featuredTmdb.id}`);
-    if (!movieDetails) {
-        return mapTmdbMovieToMovie(featuredTmdb);
+    const { data: movies, error } = await supabase.from('movies').select('*');
+    if (error || !movies || movies.length === 0) {
+      if (error) console.error('Supabase getFeaturedMovie error:', error);
+      return null;
     }
     
-    return mapTmdbMovieToMovie(movieDetails);
+    const featured = movies[Math.floor(Math.random() * movies.length)];
+    return mapSupabaseMovieToMovie(featured);
 };
 
 export const searchMovies = async (query: string): Promise<Movie[]> => {
