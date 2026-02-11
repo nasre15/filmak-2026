@@ -56,6 +56,9 @@ export default function AboutPage() {
   const { t, i18n } = useTranslation();
   const { toast } = useToast();
 
+  const telegramContact = process.env.NEXT_PUBLIC_TELEGRAM_CONTACT || '';
+  const btcAddress = process.env.NEXT_PUBLIC_BITCOIN_ADDRESS || '';
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -71,18 +74,18 @@ export default function AboutPage() {
     });
 
     const text = `${t('aboutPage.form.telegramMessage', 'أريد طلب فيلم:')} ${values.movieName} (${t('aboutPage.form.telegramType', 'النوع:')} ${t(`aboutPage.form.types.${values.movieType.toLowerCase()}`, values.movieType)})`;
-    const telegramUrl = `https://t.me/+213795673705?text=${encodeURIComponent(text)}`;
+    const telegramUrl = `https://t.me/${telegramContact}?text=${encodeURIComponent(text)}`;
     
     window.open(telegramUrl, '_blank');
   }
 
-  const btcAddress = '1E9xnU6KRJ4VZRdW2csmEYkCmQZTMWfZCx';
-
   const handleCopy = () => {
-    navigator.clipboard.writeText(btcAddress);
-    toast({
-      title: t('aboutPage.support.toastTitle', 'تم نسخ عنوان المحفظة بنجاح!'),
-    });
+    if (btcAddress) {
+      navigator.clipboard.writeText(btcAddress);
+      toast({
+        title: t('aboutPage.support.toastTitle', 'تم نسخ عنوان المحفظة بنجاح!'),
+      });
+    }
   };
 
   return (
@@ -191,7 +194,7 @@ export default function AboutPage() {
                                     </FormItem>
                                 )}
                             />
-                            <Button type="submit" className="w-full h-12 text-lg">
+                            <Button type="submit" className="w-full h-12 text-lg" disabled={!telegramContact}>
                                 {t('aboutPage.form.submit', 'إرسال الطلب عبر تلجرام')}
                             </Button>
                         </form>
@@ -213,12 +216,12 @@ export default function AboutPage() {
                 </CardHeader>
                 <CardContent className="flex flex-col items-center gap-6">
                     <div className="relative w-40 h-40 bg-white p-2 rounded-lg">
-                        <Image
-                            src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=1E9xnU6KRJ4VZRdW2csmEYkCmQZTMWfZCx"
+                        {btcAddress && <Image
+                            src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${btcAddress}`}
                             alt="Bitcoin QR Code"
                             width={150}
                             height={150}
-                        />
+                        />}
                     </div>
                     <div className="w-full space-y-2">
                         <p className="text-center text-sm text-muted-foreground">
@@ -233,6 +236,7 @@ export default function AboutPage() {
                                 size="icon"
                                 onClick={handleCopy}
                                 className="text-white/70 hover:text-white"
+                                disabled={!btcAddress}
                             >
                                 <Copy className="h-5 w-5" />
                             </Button>
@@ -244,12 +248,12 @@ export default function AboutPage() {
 
         <footer className="text-center border-t border-border/20 pt-8">
             <h3 className="text-2xl font-headline mb-4">{t('aboutPage.contact.title', 'تواصل معنا')}</h3>
-            <div className="flex items-center justify-center gap-4">
+            {telegramContact && <div className="flex items-center justify-center gap-4">
                 <TelegramIcon className="h-8 w-8 text-primary"/>
-                <a href="https://t.me/+213795673705" target="_blank" rel="noopener noreferrer" className="text-2xl font-bold tracking-wider hover:text-primary transition-colors">
-                    +213795673705
+                <a href={`https://t.me/${telegramContact}`} target="_blank" rel="noopener noreferrer" className="text-2xl font-bold tracking-wider hover:text-primary transition-colors">
+                    {telegramContact}
                 </a>
-            </div>
+            </div>}
         </footer>
       </div>
     </div>
