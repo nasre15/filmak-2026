@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Bell, Clapperboard, LayoutGrid } from 'lucide-react';
+import { Bell, Clapperboard, Compass } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -38,7 +38,7 @@ export default function Header() {
             {navLinks[0].label}
           </Link>
            <Link href="/explore" className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
-            <LayoutGrid className="h-4 w-4" />
+            <Compass className="h-4 w-4" />
             {t('nav.explore')}
           </Link>
           {navLinks.slice(1).map((link) => (
