@@ -153,9 +153,9 @@ export default function Header() {
           </Sheet>
         </div>
 
-        <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-primary">
+        <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-primary font-headline">
           <Clapperboard className="h-7 w-7" />
-          <h1 className="hidden md:block">StreamVerse</h1>
+          <h1 className="hidden md:block">Filmak</h1>
         </Link>
         <nav className="hidden lg:flex items-center gap-4">
           <Link href="/" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">

@@ -5,8 +5,8 @@ import { cn } from '@/lib/utils';
 import I18nClientProvider from '@/components/i18n-client-provider';
 
 export const metadata: Metadata = {
-  title: 'StreamVerse',
-  description: 'A Netflix clone built with Next.js and Supabase.',
+  title: 'Filmak - Your Ultimate Streaming Hub',
+  description: 'Your ultimate streaming hub.',
 };
 
 export default function RootLayout({

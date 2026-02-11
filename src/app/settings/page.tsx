@@ -51,7 +51,7 @@ export default function SettingsPage() {
                   <AvatarFallback>U</AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="font-semibold">StreamVerse User</p>
+                  <p className="font-semibold">Filmak User</p>
                   <p className="text-sm text-muted-foreground">
                     user@example.com
                   </p>
