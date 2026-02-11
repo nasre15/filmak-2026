@@ -25,7 +25,7 @@ export default async function WatchPage({ params }: WatchPageProps) {
     notFound();
   }
 
-  const videoUrl = `https://vidsrc.to/embed/movie/${id}`;
+  const videoUrl = `https://embed.su/embed/movie/${id}`;
 
   return (
     <div className="relative h-screen w-screen bg-black">
