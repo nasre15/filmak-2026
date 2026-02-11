@@ -1,76 +1,67 @@
 {
   "nav": {
     "home": "الرئيسية",
-    "tv_shows": "برامج تلفزيونية",
-    "movies": "أفلام",
-    "new_popular": "جديد وشائع",
-    "my_list": "قائمتي",
-    "admin": "مسؤول",
     "explore": "استكشف",
-    "genres": "الأنواع"
+    "genres": "التصنيفات",
+    "about": "من نحن"
   },
   "header": {
+    "openMenu": "افتح القائمة",
     "notifications": "الإشعارات",
-    "change_language": "تغيير اللغة",
-    "openMenu": "فتح القائمة"
+    "change_language": "تغيير اللغة"
   },
   "userMenu": {
-    "user": "مستخدم ستريم فيرس",
+    "user": "مستخدم فلمك",
     "email": "user@example.com",
     "profile": "الملف الشخصي",
     "billing": "الفواتير",
     "settings": "الإعدادات",
     "logout": "تسجيل الخروج"
   },
-  "genres": {
-    "Action": "أكشن",
-    "Adventure": "مغامرة",
-    "Animation": "رسوم متحركة",
-    "Comedy": "كوميديا",
-    "Crime": "جريمة",
-    "Documentary": "وثائقي",
-    "Drama": "دراما",
-    "Family": "عائلي",
-    "Fantasy": "خيال",
-    "History": "تاريخ",
-    "Horror": "رعب",
-    "Music": "موسيقى",
-    "Mystery": "غموض",
-    "Romance": "رومانسي",
-    "ScienceFiction": "خيال علمي",
-    "TVMovie": "فيلم تلفزيوني",
-    "Thriller": "إثارة",
-    "War": "حرب",
-    "Western": "غربي"
-  },
   "hero": {
     "play": "تشغيل",
     "more_info": "مزيد من المعلومات"
   },
   "homePage": {
-    "footer": "© 2024 ستريم فيرس. جميع الحقوق محفوظة.",
-    "noMovies": "لم يتم العثور على أفلام",
-    "tryAddingMovies": "حاول إضافة بعض الأفلام من لوحة الإدارة."
+    "footer": "فلمك © 2024. جميع الحقوق محفوظة.",
+    "noMovies": "لا توجد أفلام حاليًا.",
+    "tryAddingMovies": "حاول إضافة بعض الأفلام من صفحة المشرف."
   },
   "adminPage": {
     "title": "إضافة فيلم جديد",
-    "backToHome": "العودة إلى الرئيسية",
     "movieTitle": "عنوان الفيلم",
-    "movieTitlePlaceholder": "مثال: 'Inception'",
+    "movieTitlePlaceholder": "مثال: Inception",
     "description": "الوصف",
-    "descriptionPlaceholder": "ملخص قصير للفيلم...",
+    "descriptionPlaceholder": "وصف قصير عن الفيلم...",
     "videoUrl": "رابط الفيديو",
     "videoUrlPlaceholder": "https://example.com/movie.mp4",
-    "saving": "جاري الحفظ...",
     "save": "حفظ الفيلم",
+    "saving": "جاري الحفظ...",
     "movieAdded": "تمت إضافة الفيلم!",
-    "movieAddedDescription": "تمت إضافة {{title}} إلى المكتبة.",
-    "errorAddingMovie": "خطأ في إضافة الفيلم"
+    "movieAddedDescription": "تمت إضافة {{title}} إلى مجموعتك.",
+    "errorAddingMovie": "خطأ في إضافة الفيلم",
+    "backToHome": "العودة للرئيسية"
+  },
+  "explorePage": {
+    "title": "استكشف الأفلام",
+    "searchResults": "نتائج البحث",
+    "searchPlaceholder": "ابحث عن أفلام...",
+    "clearSearch": "مسح البحث",
+    "filters": "مرشحات",
+    "genre": "التصنيف",
+    "allGenres": "جميع التصنيفات",
+    "year": "سنة الإصدار",
+    "allYears": "كل السنوات",
+    "rating": "التقييم",
+    "reset": "إعادة تعيين",
+    "noMoreMovies": "وصلت إلى نهاية القائمة.",
+    "noMoviesFound": "لم يتم العثور على أفلام تطابق المرشحات.",
+    "noSearchResults": "لم يتم العثور على نتائج لبحثك."
   },
   "settings": {
     "title": "الإعدادات",
     "description": "إدارة إعدادات حسابك.",
-    "backToHome": "العودة إلى الرئيسية",
+    "backToHome": "العودة للرئيسية",
     "profile": {
       "title": "الملف الشخصي"
     },
@@ -86,22 +77,64 @@
       "title": "الاشتراك",
       "currentPlan": "الخطة الحالية:"
     },
-    "logout": "تسجيل الخروج"
+    "logout": "تسجيل خروج"
   },
-  "explorePage": {
-    "filters": "عوامل التصفية",
-    "genre": "النوع",
-    "allGenres": "جميع الأنواع",
-    "year": "السنة",
-    "allYears": "جميع السنوات",
-    "rating": "التقييم",
-    "reset": "إعادة تعيين عوامل التصفية",
-    "searchResults": "نتائج البحث",
-    "title": "استكشاف الأفلام",
-    "searchPlaceholder": "ابحث عن أفلام...",
-    "clearSearch": "مسح البحث",
-    "noMoreMovies": "لقد وصلت إلى نهاية القائمة.",
-    "noSearchResults": "لم يتم العثور على نتائج لبحثك.",
-    "noMoviesFound": "لم يتم العثور على أفلام للمرشحات المحددة."
+  "aboutPage": {
+    "backToHome": "العودة للرئيسية",
+    "title": "من نحن",
+    "story": "فلمك هي وجهتك الأولى لمتابعة أحدث الأفلام، الأنمي، والرياضة بجودة عالية وتجربة مستخدم فريدة.",
+    "feature1": {
+      "title": "تنوع المحتوى",
+      "description": "أفلام، أنمي، رياضة والمزيد."
+    },
+    "feature2": {
+      "title": "سرعة البث",
+      "description": "بث سريع بدون تقطيع."
+    },
+    "feature3": {
+      "title": "تجربة مستخدم",
+      "description": "تصميم متجاوب لجميع الأجهزة."
+    },
+    "form": {
+      "title": "اطلب فيلمك",
+      "movieName": "اسم الفيلم",
+      "movieNamePlaceholder": "اكتب اسم الفيلم هنا...",
+      "movieType": "نوع الفيلم",
+      "movieTypePlaceholder": "اختر النوع...",
+      "types": {
+        "movie": "فيلم",
+        "anime": "أنمي",
+        "series": "مسلسل"
+      },
+      "submit": "إرسال الطلب عبر تلجرام",
+      "toastTitle": "شكراً لطلبك!",
+      "toastDescription": "سيتم توجيهك الآن لتأكيد الطلب عبر تلجرام.",
+      "telegramMessage": "أريد طلب فيلم:",
+      "telegramType": "النوع:"
+    },
+    "contact": {
+      "title": "تواصل معنا"
+    }
+  },
+  "genres": {
+    "Action": "أكشن",
+    "Adventure": "مغامرة",
+    "Animation": "رسوم متحركة",
+    "Comedy": "كوميديا",
+    "Crime": "جريمة",
+    "Documentary": "وثائقي",
+    "Drama": "دراما",
+    "Family": "عائلي",
+    "Fantasy": "خيالي",
+    "History": "تاريخي",
+    "Horror": "رعب",
+    "Music": "موسيقي",
+    "Mystery": "غموض",
+    "Romance": "رومانسي",
+    "ScienceFiction": "خيال علمي",
+    "TVMovie": "فيلم تلفزيوني",
+    "Thriller": "إثارة",
+    "War": "حربي",
+    "Western": "غربي"
   }
 }

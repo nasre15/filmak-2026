@@ -1,71 +1,62 @@
 {
   "nav": {
     "home": "Home",
-    "tv_shows": "TV Shows",
-    "movies": "Movies",
-    "new_popular": "New & Popular",
-    "my_list": "My List",
-    "admin": "Admin",
     "explore": "Explore",
-    "genres": "Genres"
+    "genres": "Genres",
+    "about": "About Us"
   },
   "header": {
+    "openMenu": "Open menu",
     "notifications": "Notifications",
-    "change_language": "Change language",
-    "openMenu": "Open menu"
+    "change_language": "Change language"
   },
   "userMenu": {
-    "user": "StreamVerse User",
+    "user": "Filmak User",
     "email": "user@example.com",
     "profile": "Profile",
     "billing": "Billing",
     "settings": "Settings",
     "logout": "Logout"
   },
-  "genres": {
-    "Action": "Action",
-    "Adventure": "Adventure",
-    "Animation": "Animation",
-    "Comedy": "Comedy",
-    "Crime": "Crime",
-    "Documentary": "Documentary",
-    "Drama": "Drama",
-    "Family": "Family",
-    "Fantasy": "Fantasy",
-    "History": "History",
-    "Horror": "Horror",
-    "Music": "Music",
-    "Mystery": "Mystery",
-    "Romance": "Romance",
-    "ScienceFiction": "Science Fiction",
-    "TVMovie": "TV Movie",
-    "Thriller": "Thriller",
-    "War": "War",
-    "Western": "Western"
-  },
   "hero": {
     "play": "Play",
     "more_info": "More Info"
   },
   "homePage": {
-    "footer": "© 2024 StreamVerse. All rights reserved.",
-    "noMovies": "No Movies Found",
-    "tryAddingMovies": "Try adding some movies from the admin panel."
+    "footer": "Filmak © 2024. All rights reserved.",
+    "noMovies": "No movies found at the moment.",
+    "tryAddingMovies": "Try adding some movies from the admin page."
   },
   "adminPage": {
     "title": "Add a New Movie",
-    "backToHome": "Back to Home",
     "movieTitle": "Movie Title",
-    "movieTitlePlaceholder": "e.g., 'Inception'",
+    "movieTitlePlaceholder": "e.g., Inception",
     "description": "Description",
-    "descriptionPlaceholder": "A brief synopsis of the movie...",
+    "descriptionPlaceholder": "A short description of the movie...",
     "videoUrl": "Video URL",
     "videoUrlPlaceholder": "https://example.com/movie.mp4",
-    "saving": "Saving...",
     "save": "Save Movie",
+    "saving": "Saving...",
     "movieAdded": "Movie added!",
-    "movieAddedDescription": "{{title}} has been added to the library.",
-    "errorAddingMovie": "Error adding movie"
+    "movieAddedDescription": "{{title}} has been added to your collection.",
+    "errorAddingMovie": "Error adding movie",
+    "backToHome": "Back to Home"
+  },
+  "explorePage": {
+    "title": "Explore Movies",
+    "searchResults": "Search Results",
+    "searchPlaceholder": "Search for movies...",
+    "clearSearch": "Clear search",
+    "filters": "Filters",
+    "genre": "Genre",
+    "allGenres": "All Genres",
+    "year": "Release Year",
+    "allYears": "All Years",
+    "rating": "Rating",
+    "reset": "Reset",
+    "noMoreMovies": "You've reached the end of the list.",
+    "noMoviesFound": "No movies found matching your filters.",
+    "noSearchResults": "No results found for your search."
   },
   "settings": {
     "title": "Settings",
@@ -88,20 +79,62 @@
     },
     "logout": "Logout"
   },
-  "explorePage": {
-    "filters": "Filters",
-    "genre": "Genre",
-    "allGenres": "All Genres",
-    "year": "Year",
-    "allYears": "All Years",
-    "rating": "Rating",
-    "reset": "Reset Filters",
-    "searchResults": "Search Results",
-    "title": "Explore Movies",
-    "searchPlaceholder": "Search for movies...",
-    "clearSearch": "Clear search",
-    "noMoreMovies": "You've reached the end of the list.",
-    "noSearchResults": "No results found for your search.",
-    "noMoviesFound": "No movies found for the selected filters."
+  "aboutPage": {
+    "backToHome": "Back to Home",
+    "title": "About Us",
+    "story": "Filmak is your premier destination for the latest movies, anime, and sports with high quality and a unique user experience.",
+    "feature1": {
+      "title": "Diverse Content",
+      "description": "Movies, anime, sports, and more."
+    },
+    "feature2": {
+      "title": "Fast Streaming",
+      "description": "Fast, buffer-free streaming."
+    },
+    "feature3": {
+      "title": "User Experience",
+      "description": "Responsive design for all devices."
+    },
+    "form": {
+      "title": "Request a Movie",
+      "movieName": "Movie Name",
+      "movieNamePlaceholder": "Enter movie name here...",
+      "movieType": "Movie Type",
+      "movieTypePlaceholder": "Select a type...",
+      "types": {
+        "movie": "Movie",
+        "anime": "Anime",
+        "series": "Series"
+      },
+      "submit": "Submit Request via Telegram",
+      "toastTitle": "Thank you for your request!",
+      "toastDescription": "You will now be redirected to Telegram to confirm your request.",
+      "telegramMessage": "I want to request a movie:",
+      "telegramType": "Type:"
+    },
+    "contact": {
+      "title": "Contact Us"
+    }
+  },
+  "genres": {
+    "Action": "Action",
+    "Adventure": "Adventure",
+    "Animation": "Animation",
+    "Comedy": "Comedy",
+    "Crime": "Crime",
+    "Documentary": "Documentary",
+    "Drama": "Drama",
+    "Family": "Family",
+    "Fantasy": "Fantasy",
+    "History": "History",
+    "Horror": "Horror",
+    "Music": "Music",
+    "Mystery": "Mystery",
+    "Romance": "Romance",
+    "ScienceFiction": "Science Fiction",
+    "TVMovie": "TV Movie",
+    "Thriller": "Thriller",
+    "War": "War",
+    "Western": "Western"
   }
 }

@@ -25,6 +25,7 @@ import {
   Spline,
   Shield,
   Sun,
+  Info,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -84,6 +85,7 @@ export default function Header() {
   const mainNavLinks = [
     { key: 'home', label: t('nav.home'), href: '/' },
     { key: 'explore', label: t('nav.explore'), href: '/explore', icon: Compass },
+    { key: 'about', label: t('nav.about'), href: '/about', icon: Info },
   ];
 
   const genreIcons: { [key: string]: React.ElementType } = {
@@ -123,13 +125,17 @@ export default function Header() {
               <ScrollArea className="h-full">
                 <div className="p-6">
                   <nav className="flex flex-col gap-4">
-                    {mainNavLinks.map((link) => (
-                      <SheetClose asChild key={link.key}>
-                        <Link href={link.href} className="text-lg font-medium">
-                          <span dir="auto">{link.label}</span>
-                        </Link>
-                      </SheetClose>
-                    ))}
+                    {mainNavLinks.map((link) => {
+                      const Icon = link.icon;
+                      return (
+                        <SheetClose asChild key={link.key}>
+                          <Link href={link.href} className="flex items-center gap-3 text-lg font-medium">
+                            {Icon && <Icon className="h-5 w-5" />}
+                            <span dir="auto">{link.label}</span>
+                          </Link>
+                        </SheetClose>
+                      )
+                    })}
                   </nav>
                   <Separator className="my-4" />
                   <h3 className="text-lg font-semibold mb-2" dir="auto">{t('nav.genres')}</h3>
@@ -161,13 +167,15 @@ export default function Header() {
           </h1>
         </Link>
         <nav className="hidden lg:flex items-center gap-4">
-          <Link href="/" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
-            {t('nav.home')}
-          </Link>
-          <Link href="/explore" className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
-            <Compass className="h-4 w-4" />
-            {t('nav.explore')}
-          </Link>
+          {mainNavLinks.map((link) => {
+             const Icon = link.icon;
+             return (
+              <Link key={link.key} href={link.href} className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+                {Icon && <Icon className="h-4 w-4" />}
+                {link.label}
+              </Link>
+             )
+          })}
           <GenresMenu />
         </nav>
       </div>
