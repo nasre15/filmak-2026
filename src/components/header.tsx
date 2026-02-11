@@ -12,7 +12,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import ConnectWalletButton from './connect-wallet-button';
 import LanguageSwitcher from './language-switcher';
 import { useTranslation } from 'react-i18next';
 import SearchBar from './search-bar';
@@ -51,7 +50,6 @@ export default function Header() {
           <Bell className="h-5 w-5" />
           <span className="sr-only">{t('header.notifications')}</span>
         </Button>
-        <ConnectWalletButton />
         <LanguageSwitcher />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
