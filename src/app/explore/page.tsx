@@ -170,7 +170,7 @@ export default function ExplorePage() {
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <div className="flex flex-1 container mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-        <aside className="w-full md:w-64 lg:w-72 md:pr-8 space-y-6 hidden md:block sticky top-16 self-start h-[calc(100vh-4rem)] overflow-y-auto scrollbar-hide">
+        <aside className="w-full md:w-64 lg:w-72 md:pe-8 space-y-6 hidden md:block sticky top-16 self-start h-[calc(100vh-4rem)] overflow-y-auto scrollbar-hide">
           <h2 className="text-2xl font-bold">{t('explorePage.filters')}</h2>
           
           <fieldset disabled={isSearchActive} className="space-y-6">
@@ -220,22 +220,22 @@ export default function ExplorePage() {
           <Button onClick={resetFilters} variant="outline" className="w-full">{t('explorePage.reset')}</Button>
         </aside>
 
-        <main className="flex-1 pt-8 md:pl-8">
+        <main className="flex-1 pt-8 md:ps-8">
           <h1 className="text-3xl font-bold mb-6">{isSearchActive ? t('explorePage.searchResults', 'Search Results') : t('explorePage.title')}</h1>
           
           <div className="relative mb-6">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground pointer-events-none" />
+            <Search className="absolute start-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground pointer-events-none" />
             <Input
               placeholder={t('explorePage.searchPlaceholder', 'Search for movies...')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full h-10 pl-10 pr-10 rounded-md bg-card border border-input focus:border-ring focus:outline-none transition-colors"
+              className="w-full h-10 ps-10 pe-10 rounded-md bg-card border border-input focus:border-ring focus:outline-none transition-colors"
             />
             {searchQuery && (
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute right-2 top-1/2 -translate-y-1/2 h-7 w-7"
+                className="absolute end-2 top-1/2 -translate-y-1/2 h-7 w-7"
                 onClick={() => handleFilterChange('q', '')}
               >
                 <X className="h-4 w-4" />

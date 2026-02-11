@@ -22,7 +22,7 @@ export default async function WatchPage({ params }: WatchPageProps) {
   return (
     <div className="relative h-screen w-screen bg-black">
       <Link href="/">
-        <Button variant="ghost" size="icon" className="absolute top-4 left-4 z-10 text-white hover:text-white hover:bg-white/10">
+        <Button variant="ghost" size="icon" className="absolute top-4 start-4 z-10 text-white hover:text-white hover:bg-white/10">
           <ArrowLeft className="h-8 w-8" />
           <span className="sr-only">Back to browse</span>
         </Button>

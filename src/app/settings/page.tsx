@@ -24,7 +24,7 @@ export default function SettingsPage() {
       <div className="w-full max-w-3xl">
         <Link href="/" className="mb-4 inline-block">
           <Button variant="ghost">
-            <ArrowLeft className="mr-2 h-4 w-4" />
+            <ArrowLeft className="me-2 h-4 w-4" />
             {t('settings.backToHome', 'Back to Home')}
           </Button>
         </Link>

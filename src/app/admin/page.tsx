@@ -68,7 +68,7 @@ export default function AdminPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-4">
-      <Link href="/" className="absolute top-4 left-4 z-10">
+      <Link href="/" className="absolute top-4 start-4 z-10">
         <Button variant="ghost" size="icon">
           <ArrowLeft className="h-6 w-6" />
           <span className="sr-only">{t('adminPage.backToHome')}</span>

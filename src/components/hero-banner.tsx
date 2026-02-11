@@ -29,19 +29,19 @@ export default function HeroBanner({ movie }: HeroBannerProps) {
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent"></div>
 
-      <div className="absolute bottom-[20%] md:bottom-[30%] left-4 md:left-16 max-w-md space-y-4">
+      <div className="absolute bottom-[20%] md:bottom-[30%] start-4 md:start-16 max-w-md space-y-4">
         <h1 className="text-4xl md:text-6xl font-bold font-headline">{movie.title}</h1>
         <p className="text-sm md:text-base text-foreground/80 line-clamp-3">{movie.description}</p>
         <div className="flex items-center gap-4">
           <Link href={`/watch/${movie.id}`}>
             <Button size="lg">
-              <Play className="mr-2" />
+              <Play className="me-2" />
               {t('hero.play')}
             </Button>
           </Link>
           <Link href={`/movie/${movie.id}`}>
             <Button size="lg" variant="secondary" className="bg-white/20 hover:bg-white/30 text-white">
-              <Info className="mr-2" />
+              <Info className="me-2" />
               {t('hero.more_info')}
             </Button>
           </Link>

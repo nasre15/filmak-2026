@@ -33,7 +33,7 @@ function GenresMenu() {
           className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors flex items-center"
         >
           {t('nav.genres')}
-          <ChevronDown className="h-4 w-4 ml-1" />
+          <ChevronDown className="h-4 w-4 ms-1" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="start">

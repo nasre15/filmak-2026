@@ -26,12 +26,12 @@ export default function MovieCard({ movie }: MovieCardProps) {
         <PlayCircle className="h-16 w-16 text-white" />
       </div>
       {movie.isPremium && (
-        <div className="absolute top-2 right-2 bg-primary p-1.5 rounded-full">
+        <div className="absolute top-2 end-2 bg-primary p-1.5 rounded-full">
           <Lock className="h-4 w-4 text-primary-foreground" />
         </div>
       )}
       <div className={cn(
-        "absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/80 to-transparent",
+        "absolute bottom-0 inset-x-0 p-2 bg-gradient-to-t from-black/80 to-transparent",
         "opacity-100 group-hover:opacity-0 transition-opacity duration-300"
       )}>
         <h3 className="text-white font-semibold text-sm truncate">{movie.title}</h3>

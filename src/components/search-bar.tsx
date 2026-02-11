@@ -50,14 +50,14 @@ export default function SearchBar() {
   return (
     <div className="relative w-full max-w-xs md:max-w-sm" ref={searchRef}>
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-foreground/50 pointer-events-none" />
+        <Search className="absolute start-3 top-1/2 -translate-y-1/2 h-5 w-5 text-foreground/50 pointer-events-none" />
         <input
           type="text"
           placeholder="Search for movies..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => query && setIsOpen(true)}
-          className="w-full h-10 pl-10 pr-4 rounded-md bg-black/50 border border-transparent focus:bg-black/70 focus:border-ring focus:outline-none transition-all text-sm"
+          className="w-full h-10 ps-10 pe-4 rounded-md bg-black/50 border border-transparent focus:bg-black/70 focus:border-ring focus:outline-none transition-all text-sm"
         />
       </div>
 

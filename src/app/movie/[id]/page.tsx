@@ -72,7 +72,7 @@ export default async function MoviePage({ params }: MoviePageProps) {
 
               <Link href={`/watch/${movie.id}`}>
                 <Button size="lg" className="text-lg h-12 px-10">
-                  <Play className="mr-2 h-6 w-6" />
+                  <Play className="me-2 h-6 w-6" />
                   Watch Now
                 </Button>
               </Link>
