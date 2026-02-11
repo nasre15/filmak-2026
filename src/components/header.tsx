@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Bell,
   Compass,
@@ -46,9 +46,16 @@ import LanguageSwitcher from './language-switcher';
 import SearchBar from './search-bar';
 import { ALL_GENRES } from '@/lib/genres';
 import { Separator } from './ui/separator';
+import { Skeleton } from './ui/skeleton';
 
 function GenresMenu() {
   const { t } = useTranslation();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -56,7 +63,7 @@ function GenresMenu() {
           variant="ghost"
           className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors flex items-center"
         >
-          {t('nav.genres')}
+          {mounted ? t('nav.genres') : <Skeleton className="h-4 w-16" />}
           <ChevronDown className="h-4 w-4 ms-1" />
         </Button>
       </DropdownMenuTrigger>
@@ -80,12 +87,17 @@ function GenresMenu() {
 export default function Header() {
   const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const dir = i18n.dir();
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const mainNavLinks = [
-    { key: 'home', label: t('nav.home'), href: '/' },
-    { key: 'explore', label: t('nav.explore'), href: '/explore', icon: Compass },
-    { key: 'about', label: t('nav.about'), href: '/about', icon: Info },
+    { key: 'home', labelKey: 'nav.home', href: '/' },
+    { key: 'explore', labelKey: 'nav.explore', href: '/explore', icon: Compass },
+    { key: 'about', labelKey: 'nav.about', href: '/about', icon: Info },
   ];
 
   const genreIcons: { [key: string]: React.ElementType } = {
@@ -118,7 +130,7 @@ export default function Header() {
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="shrink-0">
                 <Menu className="h-6 w-6" />
-                <span className="sr-only">{t('header.openMenu', 'Open menu')}</span>
+                <span className="sr-only">{mounted ? t('header.openMenu', 'Open menu') : 'Open menu'}</span>
               </Button>
             </SheetTrigger>
             <SheetContent side={dir === 'rtl' ? 'right' : 'left'} className="w-64 p-0">
@@ -131,14 +143,14 @@ export default function Header() {
                         <SheetClose asChild key={link.key}>
                           <Link href={link.href} className="flex items-center gap-3 text-lg font-medium">
                             {Icon && <Icon className="h-5 w-5" />}
-                            <span dir="auto">{link.label}</span>
+                            <span dir="auto">{mounted ? t(link.labelKey) : <Skeleton className="h-5 w-20" />}</span>
                           </Link>
                         </SheetClose>
                       )
                     })}
                   </nav>
                   <Separator className="my-4" />
-                  <h3 className="text-lg font-semibold mb-2" dir="auto">{t('nav.genres')}</h3>
+                  <h3 className="text-lg font-semibold mb-2" dir="auto">{mounted ? t('nav.genres') : <Skeleton className="h-5 w-24" />}</h3>
                   <nav className="flex flex-col gap-2">
                     {ALL_GENRES.map((genre) => {
                       const Icon = genreIcons[genre.name];
@@ -146,7 +158,7 @@ export default function Header() {
                         <SheetClose asChild key={genre.id}>
                           <Link href={`/explore?genre=${genre.id}`} className="flex items-center gap-3 text-base text-foreground/80 hover:text-foreground">
                             {Icon && <Icon className="h-5 w-5" />}
-                            <span dir="auto">{t(`genres.${genre.name.replace(/ /g, '')}`, genre.name)}</span>
+                            <span dir="auto">{mounted ? t(`genres.${genre.name.replace(/ /g, '')}`, genre.name): <Skeleton className="h-4 w-28" />}</span>
                           </Link>
                         </SheetClose>
                       );
@@ -172,7 +184,7 @@ export default function Header() {
              return (
               <Link key={link.key} href={link.href} className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
                 {Icon && <Icon className="h-4 w-4" />}
-                {link.label}
+                {mounted ? t(link.labelKey) : <Skeleton className="h-4 w-16" />}
               </Link>
              )
           })}
@@ -183,7 +195,7 @@ export default function Header() {
         <SearchBar />
         <Button variant="ghost" size="icon">
           <Bell className="h-5 w-5" />
-          <span className="sr-only">{t('header.notifications')}</span>
+          <span className="sr-only">{mounted ? t('header.notifications') : 'Notifications'}</span>
         </Button>
         <LanguageSwitcher />
         <DropdownMenu>
@@ -198,18 +210,18 @@ export default function Header() {
           <DropdownMenuContent className="w-56" align="end" forceMount>
             <DropdownMenuLabel className="font-normal">
               <div className="flex flex-col space-y-1">
-                <p className="text-sm font-medium leading-none">{t('userMenu.user')}</p>
-                <p className="text-xs leading-none text-muted-foreground">{t('userMenu.email')}</p>
+                <p className="text-sm font-medium leading-none">{mounted ? t('userMenu.user') : <Skeleton className="h-4 w-24" />}</p>
+                <p className="text-xs leading-none text-muted-foreground">{mounted ? t('userMenu.email') : <Skeleton className="h-3 w-32 mt-1" />}</p>
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>{t('userMenu.profile')}</DropdownMenuItem>
-            <DropdownMenuItem>{t('userMenu.billing')}</DropdownMenuItem>
+            <DropdownMenuItem>{mounted ? t('userMenu.profile') : 'Profile'}</DropdownMenuItem>
+            <DropdownMenuItem>{mounted ? t('userMenu.billing') : 'Billing'}</DropdownMenuItem>
             <DropdownMenuItem asChild>
-              <Link href="/settings">{t('userMenu.settings')}</Link>
+              <Link href="/settings">{mounted ? t('userMenu.settings') : 'Settings'}</Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>{t('userMenu.logout')}</DropdownMenuItem>
+            <DropdownMenuItem>{mounted ? t('userMenu.logout') : 'Logout'}</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
