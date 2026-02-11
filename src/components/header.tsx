@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { Bell, Search, Clapperboard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -11,9 +13,18 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import ConnectWalletButton from './connect-wallet-button';
+import LanguageSwitcher from './language-switcher';
+import { useTranslation } from 'react-i18next';
 
 export default function Header() {
-  const navLinks = ['Home', 'TV Shows', 'Movies', 'New & Popular', 'My List'];
+  const { t } = useTranslation();
+  const navLinks = [
+    { key: 'home', label: t('nav.home'), href: '#' },
+    { key: 'tv_shows', label: t('nav.tv_shows'), href: '#' },
+    { key: 'movies', label: t('nav.movies'), href: '#' },
+    { key: 'new_popular', label: t('nav.new_popular'), href: '#' },
+    { key: 'my_list', label: t('nav.my_list'), href: '#' },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between h-16 px-4 md:px-8 bg-gradient-to-b from-black/80 to-transparent transition-all duration-300">
@@ -24,25 +35,26 @@ export default function Header() {
         </Link>
         <nav className="hidden lg:flex items-center gap-4">
           {navLinks.map((link) => (
-            <Link key={link} href="#" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
-              {link}
+            <Link key={link.key} href={link.href} className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+              {link.label}
             </Link>
           ))}
           <Link href="/admin" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
-            Admin
+            {t('nav.admin')}
           </Link>
         </nav>
       </div>
       <div className="flex items-center gap-4">
         <Button variant="ghost" size="icon">
           <Search className="h-5 w-5" />
-          <span className="sr-only">Search</span>
+          <span className="sr-only">{t('header.search')}</span>
         </Button>
         <Button variant="ghost" size="icon">
           <Bell className="h-5 w-5" />
-          <span className="sr-only">Notifications</span>
+          <span className="sr-only">{t('header.notifications')}</span>
         </Button>
         <ConnectWalletButton />
+        <LanguageSwitcher />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="relative h-8 w-8 rounded-full">
@@ -55,16 +67,16 @@ export default function Header() {
           <DropdownMenuContent className="w-56" align="end" forceMount>
             <DropdownMenuLabel className="font-normal">
               <div className="flex flex-col space-y-1">
-                <p className="text-sm font-medium leading-none">User</p>
-                <p className="text-xs leading-none text-muted-foreground">user@example.com</p>
+                <p className="text-sm font-medium leading-none">{t('userMenu.user')}</p>
+                <p className="text-xs leading-none text-muted-foreground">{t('userMenu.email')}</p>
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Billing</DropdownMenuItem>
-            <DropdownMenuItem>Settings</DropdownMenuItem>
+            <DropdownMenuItem>{t('userMenu.profile')}</DropdownMenuItem>
+            <DropdownMenuItem>{t('userMenu.billing')}</DropdownMenuItem>
+            <DropdownMenuItem>{t('userMenu.settings')}</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Log out</DropdownMenuItem>
+            <DropdownMenuItem>{t('userMenu.logout')}</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

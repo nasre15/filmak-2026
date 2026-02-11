@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "tv_shows": "Séries TV",
+    "movies": "Films",
+    "new_popular": "Nouveautés",
+    "my_list": "Ma Liste",
+    "admin": "Admin"
+  },
+  "header": {
+    "search": "Rechercher",
+    "notifications": "Notifications",
+    "connect_wallet": "Connecter le portefeuille",
+    "change_language": "Changer de langue"
+  },
+  "userMenu": {
+    "user": "Utilisateur",
+    "email": "utilisateur@example.com",
+    "profile": "Profil",
+    "billing": "Facturation",
+    "settings": "Paramètres",
+    "logout": "Se déconnecter"
+  },
+  "hero": {
+    "play": "Lecture",
+    "more_info": "Plus d'infos"
+  },
+  "adminPage": {
+    "title": "Ajouter un nouveau film",
+    "movieTitle": "Titre",
+    "movieTitlePlaceholder": "ex: L'Aventure Cosmique",
+    "description": "Description",
+    "descriptionPlaceholder": "ex: Un voyage palpitant à travers l'espace...",
+    "videoUrl": "URL de la vidéo",
+    "videoUrlPlaceholder": "https://example.com/video.mp4",
+    "save": "Enregistrer le film",
+    "saving": "Enregistrement...",
+    "backToHome": "Retour à l'accueil",
+    "movieAdded": "Film ajouté",
+    "movieAddedDescription": "\"{{title}}\" a été ajouté avec succès.",
+    "errorAddingMovie": "Erreur lors de l'ajout du film"
+  },
+  "homePage": {
+    "noMovies": "Aucun film trouvé.",
+    "tryAddingMovies": "Essayez d'ajouter des films dans le panneau d'administration.",
+    "footer": "StreamVerse - Tous droits réservés."
+  }
+}

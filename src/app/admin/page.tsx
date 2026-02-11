@@ -20,6 +20,7 @@ import { addMovie } from './actions';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -32,6 +33,7 @@ const formSchema = z.object({
 });
 
 export default function AdminPage() {
+  const { t } = useTranslation();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -51,14 +53,14 @@ export default function AdminPage() {
 
     if (result.success) {
       toast({
-        title: 'Movie Added',
-        description: `"${values.title}" has been successfully added.`,
+        title: t('adminPage.movieAdded'),
+        description: t('adminPage.movieAddedDescription', { title: values.title }),
       });
       form.reset();
     } else {
       toast({
         variant: 'destructive',
-        title: 'Error Adding Movie',
+        title: t('adminPage.errorAddingMovie'),
         description: result.error || 'Something went wrong.',
       });
     }
@@ -66,15 +68,15 @@ export default function AdminPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-4">
-       <Link href="/" className="absolute top-4 left-4 z-10">
+      <Link href="/" className="absolute top-4 left-4 z-10">
         <Button variant="ghost" size="icon">
           <ArrowLeft className="h-6 w-6" />
-          <span className="sr-only">Back to Home</span>
+          <span className="sr-only">{t('adminPage.backToHome')}</span>
         </Button>
       </Link>
       <Card className="w-full max-w-2xl">
         <CardHeader>
-          <CardTitle>Add New Movie</CardTitle>
+          <CardTitle>{t('adminPage.title')}</CardTitle>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -84,9 +86,9 @@ export default function AdminPage() {
                 name="title"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Title</FormLabel>
+                    <FormLabel>{t('adminPage.movieTitle')}</FormLabel>
                     <FormControl>
-                      <Input placeholder="e.g., The Cosmic Adventure" {...field} />
+                      <Input placeholder={t('adminPage.movieTitlePlaceholder')} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -97,10 +99,10 @@ export default function AdminPage() {
                 name="description"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Description</FormLabel>
+                    <FormLabel>{t('adminPage.description')}</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="e.g., A thrilling journey through space..."
+                        placeholder={t('adminPage.descriptionPlaceholder')}
                         className="resize-none"
                         {...field}
                       />
@@ -114,16 +116,16 @@ export default function AdminPage() {
                 name="videoUrl"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Video URL</FormLabel>
+                    <FormLabel>{t('adminPage.videoUrl')}</FormLabel>
                     <FormControl>
-                      <Input placeholder="https://example.com/video.mp4" {...field} />
+                      <Input placeholder={t('adminPage.videoUrlPlaceholder')} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               <Button type="submit" disabled={isSubmitting} className="w-full">
-                {isSubmitting ? 'Saving...' : 'Save Movie'}
+                {isSubmitting ? t('adminPage.saving') : t('adminPage.save')}
               </Button>
             </form>
           </Form>

@@ -1,14 +1,18 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Info, Play } from 'lucide-react';
 import type { Movie } from '@/lib/types';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 type HeroBannerProps = {
   movie: Movie;
 };
 
 export default function HeroBanner({ movie }: HeroBannerProps) {
+  const { t } = useTranslation();
   if (!movie.backdropURL) {
     return null;
   }
@@ -32,12 +36,12 @@ export default function HeroBanner({ movie }: HeroBannerProps) {
           <Link href={`/watch/${movie.id}`}>
             <Button size="lg">
               <Play className="mr-2" />
-              Play
+              {t('hero.play')}
             </Button>
           </Link>
           <Button size="lg" variant="secondary" className="bg-white/20 hover:bg-white/30 text-white">
             <Info className="mr-2" />
-            More Info
+            {t('hero.more_info')}
           </Button>
         </div>
       </div>

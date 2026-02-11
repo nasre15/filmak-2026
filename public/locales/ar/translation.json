@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "tv_shows": "مسلسلات",
+    "movies": "أفلام",
+    "new_popular": "جديد وشائع",
+    "my_list": "قائمتي",
+    "admin": "إدارة"
+  },
+  "header": {
+    "search": "بحث",
+    "notifications": "إشعارات",
+    "connect_wallet": "توصيل المحفظة",
+    "change_language": "تغيير اللغة"
+  },
+  "userMenu": {
+    "user": "المستخدم",
+    "email": "user@example.com",
+    "profile": "الملف الشخصي",
+    "billing": "الفواتير",
+    "settings": "الإعدادات",
+    "logout": "تسجيل الخروج"
+  },
+  "hero": {
+    "play": "تشغيل",
+    "more_info": "معلومات اكثر"
+  },
+  "adminPage": {
+    "title": "إضافة فيلم جديد",
+    "movieTitle": "العنوان",
+    "movieTitlePlaceholder": "مثال: المغامرة الكونية",
+    "description": "الوصف",
+    "descriptionPlaceholder": "مثال: رحلة مثيرة عبر الفضاء...",
+    "videoUrl": "رابط الفيديو",
+    "videoUrlPlaceholder": "https://example.com/video.mp4",
+    "save": "حفظ الفيلم",
+    "saving": "جاري الحفظ...",
+    "backToHome": "العودة إلى الرئيسية",
+    "movieAdded": "تمت إضافة الفيلم",
+    "movieAddedDescription": "تمت إضافة \\"{{title}}\\" بنجاح.",
+    "errorAddingMovie": "خطأ في إضافة الفيلم"
+  },
+  "homePage": {
+    "noMovies": "لم يتم العثور على أفلام.",
+    "tryAddingMovies": "حاول إضافة بعض الأفلام في لوحة الإدارة.",
+    "footer": "StreamVerse - جميع الحقوق محفوظة."
+  }
+}

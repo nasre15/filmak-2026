@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "home": "Home",
+    "tv_shows": "TV Shows",
+    "movies": "Movies",
+    "new_popular": "New & Popular",
+    "my_list": "My List",
+    "admin": "Admin"
+  },
+  "header": {
+    "search": "Search",
+    "notifications": "Notifications",
+    "connect_wallet": "Connect Wallet",
+    "change_language": "Change language"
+  },
+  "userMenu": {
+    "user": "User",
+    "email": "user@example.com",
+    "profile": "Profile",
+    "billing": "Billing",
+    "settings": "Settings",
+    "logout": "Log out"
+  },
+  "hero": {
+    "play": "Play",
+    "more_info": "More Info"
+  },
+  "adminPage": {
+    "title": "Add New Movie",
+    "movieTitle": "Title",
+    "movieTitlePlaceholder": "e.g., The Cosmic Adventure",
+    "description": "Description",
+    "descriptionPlaceholder": "e.g., A thrilling journey through space...",
+    "videoUrl": "Video URL",
+    "videoUrlPlaceholder": "https://example.com/video.mp4",
+    "save": "Save Movie",
+    "saving": "Saving...",
+    "backToHome": "Back to Home",
+    "movieAdded": "Movie Added",
+    "movieAddedDescription": "\"{{title}}\" has been successfully added.",
+    "errorAddingMovie": "Error Adding Movie"
+  },
+  "homePage": {
+    "noMovies": "No movies found.",
+    "tryAddingMovies": "Try adding some movies in the admin panel.",
+    "footer": "StreamVerse - All rights reserved."
+  }
+}

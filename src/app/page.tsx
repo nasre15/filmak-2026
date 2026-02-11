@@ -2,6 +2,8 @@ import Header from '@/components/header';
 import HeroBanner from '@/components/hero-banner';
 import MovieCarousel from '@/components/movie-carousel';
 import { getMoviesByGenre, getFeaturedMovie } from '@/lib/data';
+import NoMoviesFound from '@/components/no-movies-found';
+import Footer from '@/components/footer';
 
 export default async function Home() {
   const movieGenres = await getMoviesByGenre();
@@ -11,17 +13,8 @@ export default async function Home() {
     return (
       <main className="flex min-h-screen flex-col items-center justify-start bg-background">
         <Header />
-        <div className="w-full flex-1 flex items-center justify-center">
-          <div className="text-center">
-            <h2 className="text-2xl font-semibold">No movies found.</h2>
-            <p className="text-muted-foreground mt-2">
-              Try adding some movies in the admin panel.
-            </p>
-          </div>
-        </div>
-        <footer className="w-full text-center p-8 text-muted-foreground text-sm">
-          StreamVerse - All rights reserved.
-        </footer>
+        <NoMoviesFound />
+        <Footer />
       </main>
     );
   }
@@ -35,9 +28,7 @@ export default async function Home() {
           <MovieCarousel key={genre.title} title={genre.title} movies={genre.movies} />
         ))}
       </div>
-      <footer className="w-full text-center p-8 text-muted-foreground text-sm">
-        StreamVerse - All rights reserved.
-      </footer>
+      <Footer />
     </main>
   );
 }
