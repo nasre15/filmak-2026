@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import {
   Bell,
   Compass,
@@ -171,9 +172,7 @@ export default function Header() {
         </div>
 
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary">
-            <span className="font-headline text-2xl font-bold text-primary-foreground">F</span>
-          </div>
+          <Image src="/logo.png" alt="Filmak Logo" width={40} height={40} />
           <h1 className="hidden font-headline text-2xl font-bold text-primary md:block">
             Filmak
           </h1>
