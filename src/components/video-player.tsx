@@ -12,7 +12,7 @@ export default function VideoPlayer({ movieId }: VideoPlayerProps) {
   const [server, setServer] = useState<'primary' | 'alternative'>('primary');
 
   const urls = useMemo(() => ({
-      primary: `https://embed.su/embed/movie/${movieId}`,
+      primary: `https://vidsrc.me/embed/movie/${movieId}`,
       alternative: `https://vidsrc.to/embed/movie/${movieId}`,
   }), [movieId]);
 
@@ -43,7 +43,7 @@ export default function VideoPlayer({ movieId }: VideoPlayerProps) {
         width="100%"
         height="100%"
         allowFullScreen
-        referrerPolicy="origin"
+        referrerPolicy="no-referrer"
         className="border-0"
       ></iframe>
        <div className="absolute bottom-4 right-4 z-10">
