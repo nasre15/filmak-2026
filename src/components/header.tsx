@@ -171,8 +171,12 @@ export default function Header() {
           </Sheet>
         </div>
 
-        <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo.png" alt="Filmak Logo" width={40} height={40} />
+        <Link href="/" className="flex items-center gap-2 group">
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary shadow-md transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-primary/50">
+            <span className="font-headline text-2xl font-bold text-primary-foreground">
+              F
+            </span>
+          </div>
           <h1 className="hidden font-headline text-2xl font-bold text-primary md:block">
             Filmak
           </h1>
