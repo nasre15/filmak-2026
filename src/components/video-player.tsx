@@ -1,10 +1,28 @@
+'use client';
+
+import { useState } from 'react';
+
 type VideoPlayerProps = {
   videoUrl: string;
 };
 
 export default function VideoPlayer({ videoUrl }: VideoPlayerProps) {
+  const [isOverlayVisible, setIsOverlayVisible] = useState(true);
+
+  const handleOverlayClick = () => {
+    setIsOverlayVisible(false);
+  };
+
   return (
-    <div className="w-full h-full">
+    <div className="relative w-full h-full">
+      {isOverlayVisible && (
+        <div
+          className="absolute inset-0 z-10 cursor-pointer bg-transparent"
+          onClick={handleOverlayClick}
+          aria-label="Activate player"
+          role="button"
+        ></div>
+      )}
       <iframe
         src={videoUrl}
         title="Movie Player"
@@ -12,7 +30,6 @@ export default function VideoPlayer({ videoUrl }: VideoPlayerProps) {
         height="100%"
         allowFullScreen
         className="border-0"
-        sandbox="allow-forms allow-scripts allow-same-origin allow-presentation allow-top-navigation-by-user-activation"
       ></iframe>
     </div>
   );
