@@ -4,7 +4,6 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import {
   Bell,
-  Clapperboard,
   Compass,
   Menu,
   ChevronDown,
@@ -153,9 +152,13 @@ export default function Header() {
           </Sheet>
         </div>
 
-        <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-primary font-headline">
-          <Clapperboard className="h-7 w-7" />
-          <h1 className="hidden md:block">Filmak</h1>
+        <Link href="/" className="flex items-center gap-2">
+          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary">
+            <span className="font-headline text-2xl font-bold text-primary-foreground">F</span>
+          </div>
+          <h1 className="hidden font-headline text-2xl font-bold text-primary md:block">
+            Filmak
+          </h1>
         </Link>
         <nav className="hidden lg:flex items-center gap-4">
           <Link href="/" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
