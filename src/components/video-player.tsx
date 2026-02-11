@@ -12,6 +12,7 @@ export default function VideoPlayer({ videoUrl }: VideoPlayerProps) {
         height="100%"
         allowFullScreen
         className="border-0"
+        sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation"
       ></iframe>
     </div>
   );
