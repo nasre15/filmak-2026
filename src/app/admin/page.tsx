@@ -1,6 +1,6 @@
-'use client';
+"use client";
 export const dynamic = 'force-dynamic';
-
+export const fetchCache = 'force-no-store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
