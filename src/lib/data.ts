@@ -42,7 +42,7 @@ const mapTmdbMovieToMovie = (tmdbMovie: any, genres: {id: number, name: string}[
         title: tmdbMovie.title,
         description: tmdbMovie.overview,
         genre: tmdbMovie.genres ? tmdbMovie.genres[0]?.name || 'Uncategorized' : getGenreName(tmdbMovie.genre_ids),
-        videoURL: '', // This will be fetched separately for the watch page
+        videoURL: '', // This is constructed on the watch page using the movie ID
         thumbnailURL: tmdbMovie.poster_path ? `${IMAGE_BASE_URL}/w500${tmdbMovie.poster_path}` : `https://picsum.photos/seed/${tmdbMovie.id}/500/281`,
         backdropURL: tmdbMovie.backdrop_path ? `${IMAGE_BASE_URL}/w1280${tmdbMovie.backdrop_path}` : `https://picsum.photos/seed/hero-${tmdbMovie.id}/1280/720`,
         isPremium: false, // TMDB doesn't have this concept
@@ -66,18 +66,6 @@ export const getMovieById = async (id: number): Promise<Movie | undefined> => {
   if (!movieData) return undefined;
 
   const movie = mapTmdbMovieToMovie(movieData);
-
-  const videoData = await tmdbFetch(`/movie/${id}/videos`);
-  const trailer = videoData?.results?.find((v: any) => v.site === 'YouTube' && v.type === 'Trailer');
-  
-  if (trailer) {
-    movie.videoURL = `https://www.youtube.com/watch?v=${trailer.key}`;
-  } else {
-     const anyVideo = videoData?.results?.find((v: any) => v.site === 'YouTube');
-     if (anyVideo) {
-        movie.videoURL = `https://www.youtube.com/watch?v=${anyVideo.key}`;
-     }
-  }
 
   return movie;
 };

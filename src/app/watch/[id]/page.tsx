@@ -17,21 +17,24 @@ export default async function WatchPage({ params }: WatchPageProps) {
     notFound();
   }
 
+  // We fetch movie details to ensure the movie exists before trying to play it.
   const movie = await getMovieById(numericId);
 
   if (!movie) {
     notFound();
   }
 
+  const videoUrl = `https://vidsrc.to/embed/movie/${params.id}`;
+
   return (
-    <div className="relative h-screen w-screen bg-black flex items-center justify-center">
+    <div className="relative h-screen w-screen bg-black">
       <Link href="/">
         <Button variant="ghost" size="icon" className="absolute top-4 left-4 z-10 text-white hover:text-white hover:bg-white/10">
           <ArrowLeft className="h-8 w-8" />
           <span className="sr-only">Back to browse</span>
         </Button>
       </Link>
-      <VideoPlayer videoUrl={movie.videoURL} />
+      <VideoPlayer videoUrl={videoUrl} />
     </div>
   );
 }
