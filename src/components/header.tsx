@@ -1,7 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { Bell, Clapperboard, Compass } from 'lucide-react';
+import { useState } from 'react';
+import { Bell, Clapperboard, Compass, Menu, ChevronDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -12,40 +15,111 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { ScrollArea } from '@/components/ui/scroll-area';
+
 import LanguageSwitcher from './language-switcher';
-import { useTranslation } from 'react-i18next';
 import SearchBar from './search-bar';
+import { ALL_GENRES } from '@/lib/genres';
+import { Separator } from './ui/separator';
+
+function GenresMenu() {
+  const { t } = useTranslation();
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button
+          variant="ghost"
+          className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors flex items-center"
+        >
+          {t('nav.genres')}
+          <ChevronDown className="h-4 w-4 ml-1" />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56" align="start">
+        <ScrollArea className="h-72">
+          <div className="p-1">
+            {ALL_GENRES.map((genre) => (
+              <DropdownMenuItem key={genre.id} asChild>
+                <Link href={`/explore?genre=${genre.id}`}>
+                  {t(`genres.${genre.name.replace(/ /g, '')}`, genre.name)}
+                </Link>
+              </DropdownMenuItem>
+            ))}
+          </div>
+        </ScrollArea>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
 
 export default function Header() {
   const { t } = useTranslation();
-  const navLinks = [
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  const mainNavLinks = [
     { key: 'home', label: t('nav.home'), href: '/' },
-    { key: 'tv_shows', label: t('nav.tv_shows'), href: '#' },
-    { key: 'movies', label: t('nav.movies'), href: '#' },
-    { key: 'new_popular', label: t('nav.new_popular'), href: '#' },
-    { key: 'my_list', label: t('nav.my_list'), href: '#' },
+    { key: 'explore', label: t('nav.explore'), href: '/explore', icon: Compass },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between h-16 px-4 md:px-8 bg-gradient-to-b from-black/80 to-transparent transition-all duration-300">
-      <div className="flex items-center gap-8">
+      <div className="flex items-center gap-4 lg:gap-8">
+        <div className="lg:hidden">
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="shrink-0">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">{t('header.openMenu', 'Open menu')}</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-64 p-0">
+              <ScrollArea className="h-full">
+                <div className="p-6">
+                  <nav className="flex flex-col gap-4">
+                    {mainNavLinks.map((link) => (
+                      <SheetClose asChild key={link.key}>
+                        <Link href={link.href} className="text-lg font-medium">
+                          {link.label}
+                        </Link>
+                      </SheetClose>
+                    ))}
+                    <SheetClose asChild>
+                      <Link href="/admin" className="text-lg font-medium text-foreground/80 hover:text-foreground">
+                        {t('nav.admin')}
+                      </Link>
+                    </SheetClose>
+                  </nav>
+                  <Separator className="my-4" />
+                  <h3 className="text-lg font-semibold mb-2">{t('nav.genres')}</h3>
+                  <nav className="flex flex-col gap-2">
+                    {ALL_GENRES.map((genre) => (
+                      <SheetClose asChild key={genre.id}>
+                        <Link href={`/explore?genre=${genre.id}`} className="text-base text-foreground/80 hover:text-foreground">
+                          {t(`genres.${genre.name.replace(/ /g, '')}`, genre.name)}
+                        </Link>
+                      </SheetClose>
+                    ))}
+                  </nav>
+                </div>
+              </ScrollArea>
+            </SheetContent>
+          </Sheet>
+        </div>
+
         <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-primary">
           <Clapperboard className="h-7 w-7" />
           <h1 className="hidden md:block">StreamVerse</h1>
         </Link>
         <nav className="hidden lg:flex items-center gap-4">
-          <Link key={navLinks[0].key} href={navLinks[0].href} className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
-            {navLinks[0].label}
+          <Link href="/" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            {t('nav.home')}
           </Link>
-           <Link href="/explore" className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+          <Link href="/explore" className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
             <Compass className="h-4 w-4" />
             {t('nav.explore')}
           </Link>
-          {navLinks.slice(1).map((link) => (
-            <Link key={link.key} href={link.href} className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
-              {link.label}
-            </Link>
-          ))}
+          <GenresMenu />
           <Link href="/admin" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
             {t('nav.admin')}
           </Link>

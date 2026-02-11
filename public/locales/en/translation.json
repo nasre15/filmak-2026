@@ -5,12 +5,14 @@
     "movies": "Movies",
     "new_popular": "New & Popular",
     "my_list": "My List",
+    "admin": "Admin",
     "explore": "Explore",
-    "admin": "Admin"
+    "genres": "Genres"
   },
   "header": {
     "notifications": "Notifications",
-    "change_language": "Change language"
+    "change_language": "Change language",
+    "openMenu": "Open menu"
   },
   "userMenu": {
     "user": "StreamVerse User",
@@ -20,53 +22,55 @@
     "settings": "Settings",
     "logout": "Logout"
   },
+  "genres": {
+    "Action": "Action",
+    "Adventure": "Adventure",
+    "Animation": "Animation",
+    "Comedy": "Comedy",
+    "Crime": "Crime",
+    "Documentary": "Documentary",
+    "Drama": "Drama",
+    "Family": "Family",
+    "Fantasy": "Fantasy",
+    "History": "History",
+    "Horror": "Horror",
+    "Music": "Music",
+    "Mystery": "Mystery",
+    "Romance": "Romance",
+    "ScienceFiction": "Science Fiction",
+    "TVMovie": "TV Movie",
+    "Thriller": "Thriller",
+    "War": "War",
+    "Western": "Western"
+  },
   "hero": {
     "play": "Play",
     "more_info": "More Info"
   },
-  "genres": {
-    "Action": "Action",
-    "Comedy": "Comedy",
-    "Science Fiction": "Science Fiction",
-    "Drama": "Drama",
-    "Horror": "Horror"
-  },
   "homePage": {
-    "footer": "© 2024 StreamVerse. All Rights Reserved.",
+    "footer": "© 2024 StreamVerse. All rights reserved.",
     "noMovies": "No Movies Found",
     "tryAddingMovies": "Try adding some movies from the admin panel."
   },
   "adminPage": {
-    "movieAdded": "Movie added!",
-    "movieAddedDescription": "{{title}} has been successfully added to the library.",
-    "errorAddingMovie": "Error Adding Movie",
-    "backToHome": "Back to Home",
     "title": "Add a New Movie",
+    "backToHome": "Back to Home",
     "movieTitle": "Movie Title",
-    "movieTitlePlaceholder": "e.g., 'The Matrix'",
+    "movieTitlePlaceholder": "e.g., 'Inception'",
     "description": "Description",
-    "descriptionPlaceholder": "A short summary of the movie...",
+    "descriptionPlaceholder": "A brief synopsis of the movie...",
     "videoUrl": "Video URL",
     "videoUrlPlaceholder": "https://example.com/movie.mp4",
     "saving": "Saving...",
-    "save": "Save Movie"
-  },
-  "explorePage": {
-    "title": "Explore Movies",
-    "filters": "Filters",
-    "genre": "Genre",
-    "allGenres": "All Genres",
-    "year": "Year",
-    "allYears": "All Years",
-    "rating": "Minimum Rating",
-    "reset": "Reset Filters",
-    "noMoreMovies": "You've reached the end.",
-    "noMoviesFound": "No movies found matching your criteria."
+    "save": "Save Movie",
+    "movieAdded": "Movie added!",
+    "movieAddedDescription": "{{title}} has been added to the library.",
+    "errorAddingMovie": "Error adding movie"
   },
   "settings": {
-    "backToHome": "Back to Home",
     "title": "Settings",
     "description": "Manage your account settings.",
+    "backToHome": "Back to Home",
     "profile": {
       "title": "Profile"
     },
@@ -83,5 +87,21 @@
       "currentPlan": "Current plan:"
     },
     "logout": "Logout"
+  },
+  "explorePage": {
+    "filters": "Filters",
+    "genre": "Genre",
+    "allGenres": "All Genres",
+    "year": "Year",
+    "allYears": "All Years",
+    "rating": "Rating",
+    "reset": "Reset Filters",
+    "searchResults": "Search Results",
+    "title": "Explore Movies",
+    "searchPlaceholder": "Search for movies...",
+    "clearSearch": "Clear search",
+    "noMoreMovies": "You've reached the end of the list.",
+    "noSearchResults": "No results found for your search.",
+    "noMoviesFound": "No movies found for the selected filters."
   }
 }

@@ -4,32 +4,48 @@
     "tv_shows": "Séries TV",
     "movies": "Films",
     "new_popular": "Nouveautés",
-    "my_list": "Ma Liste",
+    "my_list": "Ma liste",
+    "admin": "Admin",
     "explore": "Explorer",
-    "admin": "Admin"
+    "genres": "Genres"
   },
   "header": {
     "notifications": "Notifications",
-    "change_language": "Changer de langue"
+    "change_language": "Changer de langue",
+    "openMenu": "Ouvrir le menu"
   },
   "userMenu": {
     "user": "Utilisateur StreamVerse",
-    "email": "utilisateur@example.com",
+    "email": "user@example.com",
     "profile": "Profil",
     "billing": "Facturation",
     "settings": "Paramètres",
     "logout": "Déconnexion"
   },
-  "hero": {
-    "play": "Lire",
-    "more_info": "Plus d'infos"
-  },
   "genres": {
     "Action": "Action",
+    "Adventure": "Aventure",
+    "Animation": "Animation",
     "Comedy": "Comédie",
-    "Science Fiction": "Science-Fiction",
+    "Crime": "Crime",
+    "Documentary": "Documentaire",
     "Drama": "Drame",
-    "Horror": "Horreur"
+    "Family": "Famille",
+    "Fantasy": "Fantastique",
+    "History": "Histoire",
+    "Horror": "Horreur",
+    "Music": "Musique",
+    "Mystery": "Mystère",
+    "Romance": "Romance",
+    "ScienceFiction": "Science-Fiction",
+    "TVMovie": "Téléfilm",
+    "Thriller": "Thriller",
+    "War": "Guerre",
+    "Western": "Western"
+  },
+  "hero": {
+    "play": "Lecture",
+    "more_info": "Plus d'infos"
   },
   "homePage": {
     "footer": "© 2024 StreamVerse. Tous droits réservés.",
@@ -37,36 +53,24 @@
     "tryAddingMovies": "Essayez d'ajouter des films depuis le panneau d'administration."
   },
   "adminPage": {
-    "movieAdded": "Film ajouté !",
-    "movieAddedDescription": "{{title}} a été ajouté à la bibliothèque avec succès.",
-    "errorAddingMovie": "Erreur lors de l'ajout du film",
-    "backToHome": "Retour à l'accueil",
     "title": "Ajouter un nouveau film",
+    "backToHome": "Retour à l'accueil",
     "movieTitle": "Titre du film",
-    "movieTitlePlaceholder": "Ex : 'Matrix'",
+    "movieTitlePlaceholder": "Ex: 'Inception'",
     "description": "Description",
-    "descriptionPlaceholder": "Un bref résumé du film...",
+    "descriptionPlaceholder": "Un bref synopsis du film...",
     "videoUrl": "URL de la vidéo",
-    "videoUrlPlaceholder": "https://example.com/film.mp4",
+    "videoUrlPlaceholder": "https://example.com/movie.mp4",
     "saving": "Enregistrement...",
-    "save": "Enregistrer le film"
-  },
-  "explorePage": {
-    "title": "Explorer les films",
-    "filters": "Filtres",
-    "genre": "Genre",
-    "allGenres": "Tous les genres",
-    "year": "Année",
-    "allYears": "Toutes les années",
-    "rating": "Note minimale",
-    "reset": "Réinitialiser les filtres",
-    "noMoreMovies": "Vous avez atteint la fin.",
-    "noMoviesFound": "Aucun film ne correspond à vos critères."
+    "save": "Enregistrer le film",
+    "movieAdded": "Film ajouté !",
+    "movieAddedDescription": "{{title}} a été ajouté à la bibliothèque.",
+    "errorAddingMovie": "Erreur lors de l'ajout du film"
   },
   "settings": {
-    "backToHome": "Retour à l'accueil",
     "title": "Paramètres",
     "description": "Gérez les paramètres de votre compte.",
+    "backToHome": "Retour à l'accueil",
     "profile": {
       "title": "Profil"
     },
@@ -75,13 +79,29 @@
       "language": "Langue",
       "theme": {
         "title": "Thème",
-        "description": "Basculez entre le mode clair et sombre."
+        "description": "Basculez entre le mode clair et le mode sombre."
       }
     },
     "subscription": {
       "title": "Abonnement",
-      "currentPlan": "Forfait actuel :"
+      "currentPlan": "Plan actuel :"
     },
     "logout": "Déconnexion"
+  },
+  "explorePage": {
+    "filters": "Filtres",
+    "genre": "Genre",
+    "allGenres": "Tous les genres",
+    "year": "Année",
+    "allYears": "Toutes les années",
+    "rating": "Note",
+    "reset": "Réinitialiser les filtres",
+    "searchResults": "Résultats de recherche",
+    "title": "Explorer les films",
+    "searchPlaceholder": "Rechercher des films...",
+    "clearSearch": "Effacer la recherche",
+    "noMoreMovies": "Vous avez atteint la fin de la liste.",
+    "noSearchResults": "Aucun résultat trouvé pour votre recherche.",
+    "noMoviesFound": "Aucun film trouvé pour les filtres sélectionnés."
   }
 }
